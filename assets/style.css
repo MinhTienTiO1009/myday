@@ -1,0 +1,45 @@
+<<<<<<< HEAD
+*{
+    box-sizing: border-box;
+    margin: auto;
+}
+body{
+    font-family: 'Courier New', 'Courier', 'monospace';
+    background-image: url("image/bk-main.jpg");
+}
+#thang{
+    width: 300px;
+    border-radius: 10px;
+    border: 0.5px solid gray;
+    font-family: 'Courier New', 'Courier','monospace';
+    font-size: 50px;
+    font-weight: bold;
+    background-image: url("image/bk-main.jpg");
+}
+.DropdownMenu{
+    padding: 10px;
+    justify-content: center;
+    text-align: center;
+    font-size: 50px;
+}
+option{
+    border-radius: 10px;
+}
+rect{
+    fill: rgb(227, 196, 196);
+    opacity: 20%;
+    border-radius: 10px;
+=======
+body{
+    width: 80%;
+    height: auto;
+}
+.container {
+    width: 80%;
+    height: auto;
+    padding-left: 200px;
+    background-image: url(../img/bg.jpg);
+    background-repeat: no-repeat;
+    background-size: 200% 200%;
+>>>>>>> 4a42c504f25495d815952147b15b43624a04ea50
+}
