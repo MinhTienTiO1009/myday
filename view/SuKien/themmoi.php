@@ -3,7 +3,7 @@
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Include database connection code
     $servername = "localhost";
-    $database = "phoenix_ptud";
+    $database = "mydayhandbook";
     $username = "root";
     $password = "";
     // Create connection
@@ -21,8 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Insert data into the database
     $sql = "INSERT INTO sukien (TenSK, ThoiGian) VALUES ('$title', '$start')";
     if ($conn->query($sql) === TRUE) {
-
-        echo "<script>window.location.href = './index.php';</script>";
+        echo "<script>window.location.href = '../../index.php';</script>";
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }

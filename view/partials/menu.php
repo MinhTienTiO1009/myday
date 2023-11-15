@@ -7,7 +7,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href='index.php?menuNgayCuaToi' name= "menuNgayCuaToi">
                                 Ngày của tôi
                             </a>
                         </li>
@@ -17,7 +17,6 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
                             <a class="nav-link" href="./view/BieuDoCamXuc/">
                                 Tháng của tôi
                             </a>
@@ -34,4 +33,4 @@
                         </li>
                     </ul>
                 </div>
-            </nav>
+    </nav>
