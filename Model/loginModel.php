@@ -25,7 +25,7 @@ if (isset($_POST['dangnhap'])) {
             // lưu vào session
             $_SESSION['nguoidung'] = $data['username'];
             $_SESSION['matKhau'] = $data['matKhau'];
-            header('Location: index.php');
+            header('Location: /index.php');
         }else{
             $err['psw'] = "Sai mật khẩu";
         }
