@@ -75,15 +75,10 @@
     .content-todo {
         background-color: #ffffff;
         width: 1133px;
-        height: 910.345px;
+        height: 840px;
         border-radius: 15px;
-        /* position: relative; */
         overflow: visible;
-        /* top: 90px;
-        right: 30px;
-        left: 310px;
-        bottom: 23px;
-    } */
+        margin: 24px 0px;
     }
     
     
@@ -173,7 +168,7 @@
     .text-input,
     .btn-emoji,
     .btn-water {
-        width: 100%; /* Make the input take up the full width of the form */
+      width: 100%; /* Make the input take up the full width of the form */
       height: 66px;
       box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.2);
       border-radius: 10px;
@@ -298,6 +293,14 @@
     #saveButton:hover {
         background-color: #006699; /* Darker blue on hover */
     }
+
+    #btn-plus-work {
+        cursor: pointer;
+    }
+
+    #btn-plus-work:hover {
+        color:#474747;
+    }
     
     .input-form button {
         display: flex;
@@ -310,13 +313,14 @@
         font-size: 45px;
     }
     
+    .btn-water b,
     .btn-emoji b {
         line-height: 46px;
         padding: 0 0 0 12px;
     }
     
     .add-todo-work{
-        margin: -10px 0 -17px 149px;
+        margin: -14px 0 -21px 149px;
         font-size: 24px;
     }
     

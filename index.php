@@ -9,6 +9,7 @@
     
     <link rel="stylesheet" href="./assets/css/styleOfTrieu.css">
     <link rel="stylesheet" href="./assets/fontawesome-free-6.1.1-web/css/all.css">
+    <script src="view/NgayCuaToi/ngayCuaToi.js"></script>
 </head>
 
 <body>
@@ -25,7 +26,7 @@
             ?>
 
             <!-- Content -->
-            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            <main id="content" class="col-md-9 ms-sm-auto col-lg-10 px-md-4" style="background-color: #efefef;">
                 <!-- Your content goes here -->
                 <?php
                     include("view/vMainPage.php")

@@ -2,7 +2,7 @@
 <?php
     class conDB{
         function connectDB(& $conn){
-            $conn = mysqli_connect("localhost","trieu","Trieuphan37@","qlsach");
+            $conn = mysqli_connect("localhost","phanhaitrieu","Trieuphan37@",'mydayhandbook');
             mysqli_set_charset($conn, "utf8");
             // if (!$conn){
             //     die("connect failed:" . mysqli_connect_error());
@@ -12,7 +12,7 @@
             //     return true;
             // }
             if ($conn){
-                return mysqli_select_db($conn, "qlsach");
+                return mysqli_select_db($conn, "mydayhandbook");
             } else {
                 return false;
             }

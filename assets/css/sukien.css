@@ -13,4 +13,8 @@ body{
 }
 .fc-toolbar-chunk{
   padding: 10px;
+} 
+
+main #content {
+  background-color: #efefef;
 }
