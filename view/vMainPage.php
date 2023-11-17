@@ -1,25 +1,39 @@
 <?php
     //start page
-    
+    $display = 0;
     if (array_key_exists('menuNgayCuaToi', $_GET)) {
-        // echo "Biến menuNgayCuaToi tồn tại trong URL.";
-        // $menuNCT = $_GET["menuNgayCuaToi"];
         $display = 1;
     }elseif(array_key_exists('dieuToiBietOn', $_GET)){
         $display = 2;
-    }
-    elseif(array_key_exists('index.php', $_GET)) {
+    }elseif(array_key_exists('index.php', $_GET)) {
         $display = 0;
+    }elseif(array_key_exists('motThangNhinLai', $_GET)){
+        $display = 3;
+    }elseif(array_key_exists('ThoiQuen', $_GET)){
+        $display = 4 ;
     }
 
-    if($display == 0) {
-        include_once("Sukien/index.php");
-    }elseif ($display == 1){
-        include_once("NgayCuaToi/content-ngaycuatoi.php");
-    }
-    else {
+    switch ($display) {
+        case 0:
+            include_once("Sukien/index.php");
+            break;
+        case 1:
+            include_once("NgayCuaToi/content-ngaycuatoi.php");
+            break;
+        case 2:
+            echo "ahaha";
+            break;
+        case 3:
+            include_once("BieuDoCamXuc/index.php");
+            break;
+        case 4:
+            include_once("ThoiQuen/index.php");
+            break;
+        default:
+            echo "page not found 404!";
+            break;
+            
         
-        echo "error 404!";
     }
     //end page
 
