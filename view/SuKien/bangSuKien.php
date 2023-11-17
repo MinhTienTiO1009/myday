@@ -5,8 +5,13 @@ $username = "root";
 $password = "";
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $database);
+session_start();
+$currentUserName = $_SESSION['nguoidung'];
+if (!isset($_SESSION['nguoidung'])){
+    echo "<script>window.location.href = './view/DangNhap_DangKy/login.php';</script>";
 
-$sql = "SELECT TenSK,ThoiGian,UserName FROM sukien ORDER BY ThoiGian ASC";
+}
+$sql = "SELECT TenSK,ThoiGian,UserName FROM sukien WHERE UserName = '$currentUserName' ORDER BY ThoiGian ASC";
 
 $result = $conn->query($sql);
 

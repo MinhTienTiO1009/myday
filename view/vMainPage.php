@@ -1,6 +1,6 @@
 <?php
     //start page
-    
+    $display = 0;
     if (array_key_exists('menuNgayCuaToi', $_GET)) {
         // echo "Biến menuNgayCuaToi tồn tại trong URL.";
         // $menuNCT = $_GET["menuNgayCuaToi"];
