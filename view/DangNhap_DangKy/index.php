@@ -2,7 +2,7 @@
 <?php
 if(isset($_SESSION['username']) && isset($_SESSION['matKhau']))
 {
-    echo 'Chaof mung';
+    echo 'Chao mung';
     header('Location: index.php');
 }
 else
