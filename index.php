@@ -1,3 +1,6 @@
+
+<?php
+session_start();?>
 <!DOCTYPE html>
 <html>
 
@@ -18,7 +21,6 @@
     <?php
     include('./view/partials/header.php');
     ?>
-
     <div class="container-fluid">
         <div class="row">
             <!-- Aside (Menu) -->
