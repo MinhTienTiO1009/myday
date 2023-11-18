@@ -1,12 +1,12 @@
 <?php
     //start page
     $display = 0;
-    if (array_key_exists('menuNgayCuaToi', $_GET)) {
+    if(array_key_exists('index.php', $_GET)) {
+        $display = 0;
+    }elseif(array_key_exists('menuNgayCuaToi', $_GET)) {
         $display = 1;
     }elseif(array_key_exists('dieuToiBietOn', $_GET)){
         $display = 2;
-    }elseif(array_key_exists('index.php', $_GET)) {
-        $display = 0;
     }elseif(array_key_exists('motThangNhinLai', $_GET)){
         $display = 3;
     }elseif(array_key_exists('ThoiQuen', $_GET)){
@@ -21,7 +21,7 @@
             include_once("NgayCuaToi/content-ngaycuatoi.php");
             break;
         case 2:
-            echo "ahaha";
+            echo "";
             break;
         case 3:
             include_once("BieuDoCamXuc/index.php");
