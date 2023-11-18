@@ -11,7 +11,7 @@
     </div>
     <div class="chart">
         <?php
-            include_once('BieuDo.ejs');
+            include_once('BieuDo.php');
         ?>
     </div>
 </body>

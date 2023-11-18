@@ -17,12 +17,17 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./view/BieuDoCamXuc/">
+                            <a class="nav-link" href="#">
                                 Tháng của tôi
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="index.php?ThoiQuen" name = "ThoiQuen">
+                                Những thói quen tôi muốn có
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php?motThangNhinLai" name = "motThangNhinlai">
                                 Một tháng nhìn lại
                             </a>
                         </li>
