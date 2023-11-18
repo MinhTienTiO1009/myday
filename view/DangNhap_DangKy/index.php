@@ -1,6 +1,8 @@
 <h1>Trang Chủ</h1>
 <?php
-if(isset($_SESSION['username']) && isset($_SESSION['matKhau']))
+session_start();
+
+if(isset($_SESSION['nguoidung']) && isset($_SESSION['matKhau']))
 {
     echo 'Chao mung';
     header('Location: index.php');

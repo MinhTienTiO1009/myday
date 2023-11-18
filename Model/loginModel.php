@@ -2,6 +2,11 @@
 include 'connect.php';
 $err = [];
 session_start();
+if (isset($_SESSION['nguoidung'])) {
+  echo $_SESSION['nguoidung'];
+}
+
+
 if (isset($_POST['dangnhap'])) {
     $username = $_POST['username'];
     $password = $_POST['psw'];
@@ -26,8 +31,10 @@ if (isset($_POST['dangnhap'])) {
             // lưu vào session
             $_SESSION['nguoidung'] = $data['username'];
             $_SESSION['matKhau'] = $data['matKhau'];
-            header('Location: /index.php');
-            header('Location: /myday/index.php');
+            // header('Location: /index.php');
+            // header('Location: /myday/index.php');
+    echo "<script>window.location.href = '../../index.php';</script>";
+
         }else{
             $err['psw'] = "Sai mật khẩu";
         }

@@ -1,28 +1,6 @@
 <?php
-$servername = "localhost";
-$database = "mydayhandbook";
-$username = "root";
-$password = "";
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $database);
-session_start();
-$currentUserName = $_SESSION['nguoidung'];
-if (!isset($_SESSION['nguoidung'])){
-    echo "<script>window.location.href = './view/DangNhap_DangKy/login.php';</script>";
-
-}
-$sql = "SELECT TenSK,ThoiGian,UserName FROM sukien WHERE UserName = '$currentUserName' ORDER BY ThoiGian ASC";
-
-$result = $conn->query($sql);
-
-$sukien = $result->fetch_all(MYSQLI_ASSOC);
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-mysqli_close($conn);
+include 'Model/sukien.php';
 ?>
-
 
     <div id='calendar'></div>
     <script src="
