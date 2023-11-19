@@ -5,23 +5,29 @@ $username = "root";
 $password = "";
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $database);
+<<<<<<< HEAD
 // session_start();
 // $currentUserName = $_SESSION['nguoidung'];
 if (!isset($_SESSION['nguoidung'])){
     // echo "<script>window.location.href = './view/DangNhap_DangKy/login.php';</script>";
     include "./view/DangNhap_DangKy/login.php";
+=======
+// $currentUserName = $_SESSION['nguoidung'];
+// if (!isset($_SESSION['nguoidung'])){
+//     // echo "<script>window.location.href = './view/DangNhap_DangKy/login.php';</script>";
+>>>>>>> aaa50e7f9f1690ba57b45d7e4aaa86ab0deeab1b
 
-}
-$sql = "SELECT TenSK,ThoiGian,UserName FROM sukien WHERE UserName = '$currentUserName' ORDER BY ThoiGian ASC";
+// }
+// $sql = "SELECT TenSK,ThoiGian,UserName FROM sukien WHERE UserName = '$currentUserName' ORDER BY ThoiGian ASC";
 
-$result = $conn->query($sql);
+// $result = $conn->query($sql);
 
-$sukien = $result->fetch_all(MYSQLI_ASSOC);
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-mysqli_close($conn);
+// $sukien = $result->fetch_all(MYSQLI_ASSOC);
+// // Check connection
+// if (!$conn) {
+//     die("Connection failed: " . mysqli_connect_error());
+// }
+// mysqli_close($conn);
 ?>
 
 

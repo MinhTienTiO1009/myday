@@ -12,6 +12,7 @@ if (isset($_POST['dangnhap'])) {
     $username = $_POST['username'];
     $password = $_POST['psw'];
 
+<<<<<<< HEAD
     if (empty($username)) {
         $err['username'] = "Vui lòng nhập tên đăng nhập";
       }
@@ -41,6 +42,36 @@ if (isset($_POST['dangnhap'])) {
         }else{
             $err['psw'] = "Sai mật khẩu";
         }
+=======
+//     if (empty($username)) {
+//         $err['username'] = "Vui lòng nhập tên đăng nhập";
+//       }
+//       if (empty($password)) {
+//         $err['psw'] = "Vui lòng nhập mật khẩu";
+//       }else{
+//     $sql = "SELECT * FROM nguoidung WHERE username = '$username'";
+//     $query = mysqli_query($conn, $sql);
+//     $data = mysqli_fetch_assoc($query);
+//     $checkusers = mysqli_num_rows($query);
+//     if($checkusers==1){
+//         // $pass = password_hash($password, PASSWORD_BCRYPT); 
+//         $checkusers = ($password == $data['matKhau'])? True : false;
+//         // var_dump($pass);
+//         // echo '@pass';
+//         // var_dump($data['matKhau']);
+//         if($checkusers){
+//             // lưu vào session
+//             $_SESSION['nguoidung'] = $data['username'];
+//             $_SESSION['matKhau'] = $data['matKhau'];
+//             header('Location: /index.php');
+//             // http://localhost:8080/myday/index.php?menuNgayCuaToi#
+//             echo header("refresh: 0; url = 'index.php?'");
+//             // echo header('Location: ..');
+//             // /myday/include '';
+//         }else{
+//             $err['psw'] = "Sai mật khẩu";
+//         }
+>>>>>>> aaa50e7f9f1690ba57b45d7e4aaa86ab0deeab1b
 
     }else{
         $err['username'] = "Tên đăng nhập không tồn tại";

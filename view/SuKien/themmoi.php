@@ -1,5 +1,5 @@
 <?php
- session_start();
+//  session_start();
  $currentUserName = $_SESSION['nguoidung'];
  if (!isset($_SESSION['nguoidung'])){
      echo "<script>window.location.href = '../DangNhap_DangKy/login.php';</script>";

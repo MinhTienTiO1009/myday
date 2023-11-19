@@ -5,7 +5,6 @@
     <script type="text/javascript">
       google.load('visualization', '1.0', {'packages':['corechart']});
       google.setOnLoadCallback(drawChart);
-      
       function drawChart() {
         var ajax = new XMLHttpRequest();
         var method = "GET";
@@ -51,7 +50,6 @@
               chart.draw(data, options);
             }
           }
-        
       }
     </script>
   </head>

@@ -1,17 +1,18 @@
 <?php
-    include_once('ketnoi.php');
-    function selectCamXucByMonth($username, $month){
+    // session_start();
+?>
+<?php
+    include_once 'ketnoi.php';
+    function selectUser($ten,$pass){
         $object = new conDB();
         $connection = $object->connectDB($conn);
         if ($connection) {
-            $queryCommand = 'SELECT Day(ThoiGian) as ThoiGian, TrangThai FROM CAMXUC
-                            WHERE USERNAME = "nguyenvana" and month(thoigian) = '.$month;
+            $queryCommand="SELECT * FROM NGUOIDUNG WHERE USERNAME = '$ten' AND MATKHAU=$pass";
             $data = mysqli_query($conn,$queryCommand);
             $object->disconnectDB($conn);
             return $data;
         } else {
             return false;
         }
-        
     }
 ?>

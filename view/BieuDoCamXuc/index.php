@@ -7,7 +7,7 @@
 </head>
 <body>
     <div class="DropdownMenu">
-        <h3 >Biểu đồ cảm xúc <?php include_once('DropdownMonth.php'); DropDownMonth()?></h3>
+        <h3 >Biểu đồ cảm xúc <?php include_once('DropDownMonth.php'); DropDownMonth();?></h3>
     </div>
     <div class="chart">
         <?php
