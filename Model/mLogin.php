@@ -9,7 +9,7 @@
         if ($connection) {
             $queryCommand="SELECT * FROM NGUOIDUNG WHERE USERNAME = '$ten' AND MATKHAU='$pass'";
             $data = mysqli_query($conn,$queryCommand);
-            $object->disconnectDB($conn);
+            $object->disconnect($conn);
             return $data;
         } else {
             return false;
