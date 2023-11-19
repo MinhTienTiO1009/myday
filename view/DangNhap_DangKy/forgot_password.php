@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="vi">
 
 <head>
@@ -10,7 +10,7 @@
 
 <body>
     <?php
-    include '../../model/forgot_passwordModel.php';
+    // include '../../model/forgot_passwordModel.php';
     ?>
     <form action="forgot_password.php" method="post">
         <div class="container">
@@ -38,4 +38,4 @@
 
 </body>
 
-</html>
+</html> -->
