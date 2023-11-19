@@ -15,6 +15,8 @@
         $display = 5 ;
     }elseif(array_key_exists('logout', $_GET)){
         $display = -5 ;
+    }elseif(array_key_exists('themMoi', $_GET)){
+        $display = 6 ;
     }
 
     switch ($display) {
@@ -40,6 +42,9 @@
         case -5:
             include_once("controller/logout.php");
             break;
+         case 6:
+            include_once("view/Sukien/themmoi.php");
+             break;
         default:
             echo "page not found 404!";
             break;        
