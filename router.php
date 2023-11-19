@@ -13,6 +13,8 @@
         $display = 4 ;
     }elseif(array_key_exists('login', $_GET)){
         $display = 5 ;
+    }elseif(array_key_exists('logout', $_GET)){
+        $display = -5 ;
     }
 
     switch ($display) {
@@ -35,7 +37,9 @@
         case 5:
             include_once("view/Login/index.php");
             break;
-        
+        case -5:
+            include_once("controller/logout.php");
+            break;
         default:
             echo "page not found 404!";
             break;        

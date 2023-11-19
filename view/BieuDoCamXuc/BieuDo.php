@@ -1,6 +1,7 @@
 <html>
   <head>
     <!--Load the AJAX API-->
+<<<<<<< HEAD
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript">
       google.load('visualization', '1.0', {'packages':['corechart']});
@@ -54,14 +55,11 @@
           }
       }
     </script>
+=======
+    
+>>>>>>> 91ec294f8259857c1a29b20ef4170b796fab736d
   </head>
   <body>
-    <div id="chart_div"></div>
-    <div>
-      <form action="#" method="post">
-        <!-- <label for="ghiChu">Tháng này của tôi ngập tràng</label> -->
-        <textarea placeholder="Tháng này của tôi ngập tràn" name="ghiChu" id="ghiChu" cols="102" rows="5"></textarea>
-      </form>
-    </div>
+    
   </body>
 </html>

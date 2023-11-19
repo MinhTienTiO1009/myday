@@ -23,9 +23,26 @@
                         <button class="btn"><i class="bi bi-bell"></i></button>
                     </div>
                     <!-- User Avatar -->
-                    <div class="text-end">
+                    <!-- <div class="text-end">
                         <button class="btn"><i class="bi bi-person-circle"></i></button>
-                    </div>
+                    </div> -->
+                    <div class="text-end">
+            <div class="btn-group">
+                <button class="btn"><i class="bi bi-person-circle"></i></button>
+                <button class="btn dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown"></button>
+                <ul class="dropdown-menu">
+                    <!-- <li><a class="dropdown-item" href="#">Người dùng</a></li> -->
+                    <?php
+                    if ($_SESSION['login']==true) {
+                        echo '<li><a class="dropdown-item" href="index.php?logout">Đăng xuất</a></li>';
+                    }else{
+                        echo '<li><a class="dropdown-item" href="index.php?login">Đăng nhap</a></li>';
+                    }
+                    ?>
+                    
+                </ul>
+            </div>
+        </div>
                 </div>
             </div>
 
