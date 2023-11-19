@@ -1,26 +1,14 @@
- 
 <?php
-    class conDB{
-        function connectDB(& $conn){
-            $conn = mysqli_connect("localhost","trieu","Trieuphan37@","qlsach");
-            mysqli_set_charset($conn, "utf8");
-            // if (!$conn){
-            //     die("connect failed:" . mysqli_connect_error());
-            //     return false;
-            // }
-            // else{
-            //     return true;
-            // }
-            if ($conn){
-                return mysqli_select_db($conn, "qlsach");
-            } else {
-                return false;
-            }
+    class ConnectDataBase{
+        function connect(& $conn){
+            $conn = mysqli_connect("localhost","root","","mydayhandbook");
+            // mysql_set_charset("utf8");
+            if($conn)
+                return mysqli_select_db($conn,"mydayhandbook");
+            return false;
         }
-
-        function disconnectDB($conn){
+        function disconnect($conn){
             mysqli_close($conn);
         }
-        
     }
 ?>

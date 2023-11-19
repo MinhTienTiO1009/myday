@@ -1,12 +1,14 @@
 <?php
     //start page
-    
+    $display = 0;
     if (array_key_exists('menuNgayCuaToi', $_GET)) {
         // echo "Biến menuNgayCuaToi tồn tại trong URL.";
         // $menuNCT = $_GET["menuNgayCuaToi"];
         $display = 1;
-    }elseif(array_key_exists('dieuToiBietOn', $_GET)){
+    }elseif(array_key_exists('dieutoibieton', $_GET)){
         $display = 2;
+    }elseif(array_key_exists('motthangnhinlai', $_GET)){
+        $display = 3;
     }
     elseif(array_key_exists('index.php', $_GET)) {
         $display = 0;
@@ -17,10 +19,22 @@
     }elseif ($display == 1){
         include_once("NgayCuaToi/content-ngaycuatoi.php");
     }
+    elseif ($display == 2){
+        include_once("DieuBietOn/vDieuBietOn.php");
+        showDBOByMonth();
+    }
+    elseif ($display == 3){
+        include_once("MotThangNhinLai/vMotThangNL.php");
+        showMTNLByMonth();
+    }
     else {
         
         echo "error 404!";
     }
+
+
+
+
     //end page
 
 //     include_once("Controller/cBook.php");

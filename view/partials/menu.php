@@ -12,7 +12,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="index.php?dieutoibieton">
                                 Điều tôi biết ơn
                             </a>
                         </li>
@@ -22,7 +22,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="index.php?motthangnhinlai" name="menuMotThangNhinLai">
                                 Một tháng nhìn lại
                             </a>
                         </li>
