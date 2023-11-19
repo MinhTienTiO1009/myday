@@ -7,9 +7,15 @@
             $tblMTNL = $p->SelectAllMTNLByMonth($month, $year); //trả về table
             return $tblMTNL;
         }
-        function addMTNL($thangnam, $mathoiquen, $ghichu, $username, $than, $tam, $tri){
+        function addMTNL($thangnam, $username, $than, $tam, $tri) {
             $p = new modelMTNL();
-            return $p->insertMTNL($thangnam, $mathoiquen, $ghichu, $username, $than, $tam, $tri);
+            $kq = $p->insertMTNL($thangnam, $username, $than, $tam, $tri);
+        
+            if ($kq !== false) {
+                return $kq;
+            } else {
+                return false;
+            }
         }
 
         // function getAllNoiDungByMonth($month, $year) {

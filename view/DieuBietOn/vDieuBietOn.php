@@ -52,26 +52,25 @@
     include_once("./controller/cDieuBietOn.php");
     function showDBOByMonth() {
         $p = new controlDBO();
-        
         $a = '    
-            <form action="" method="post">
+            <form action="#" method="post">
                 <input type="text" name="Thang">
                 <input type="submit" name="submit">
             </form>';
 
         echo "<h2>Điều biết ơn trong tháng $a </h2>";
     
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        if (isset($_REQUEST['submit'])) {
+            $a = $_SESSION['username'];
             $month = $_POST['Thang'];
-            $tblDBO = $p->getAllDBOByMonth($month, 2023); // gọi tất cả sản phẩm thuộc comp
+            $tblDBO = $p->getAllDBOByMonth($month, $year, $a);
             displayDBO($tblDBO);
         }
     }
-
     function showDBO($tblDBO){
         if ($tblDBO) {
             // kiêm tra kết quả có trả về dữ liệu
-            if (mysql_num_rows($tblDBO) > 0) {
+            if (mysqli_num_rows($tblDBO) > 0) {
                 // tạo biến đếm để kiểm tra dữ liệu
                 $dem = 0;
                 // tạo table để hiện thị dữ liệu
@@ -92,7 +91,6 @@
                 {
                 echo "<table style='width: 100%' border='1px solid' margin='auto'>";
                 echo "<tr><th>Mã DBO</th><th>Nội dung</th><th>Thời gian</th><th>Username</th></tr>";
-                // duyệt từng dòng dữ liệu trong kết quả nhận được sau khi truy vấn
                 while ($row = mysqli_fetch_assoc($tblDBO)) {
                     echo "<tr>";
                     echo '<td style ="width: 25%; height: 100px">';
@@ -115,7 +113,7 @@
 <div class="col-lg-12">
 	<div class="card card-outline card-primary">
 		<div class="card-body">
-			<form action="$_REQUEST" id="vAddDBO">
+			<form action="" method="POST" id="vAddDBO">
         <input type="hidden" name="id" >
 		<div class="row">
 			<div class="col-md-12">
@@ -129,7 +127,7 @@
 			<div class="col-md-6">
             <div class="form-group">
               <label for="" class="control-label">Thời gian</label>
-              <input type="date" class="form-control form-control-sm" autocomplete="off" name="thoigian" require>
+              <input type="date" class="form-control form-control-sm" name="thoigian" require>
             </div>
           </div>
           <div class="col-md-6">
@@ -139,27 +137,32 @@
             </div>
           </div>
 		</div>
-        </form>
-    	</div>
-    	<div class="card-footer border-top border-info">
+        <div class="card-footer border-top border-info">
     		<div class="d-flex w-100 justify-content-center align-items-center">
             <input class="btn btn-flat  bg-gradient-primary mx-2" type="submit" id="btnsbubmit" name="addDBO" value="Save">
             <input class="btn btn-flat  bg-gradient-primary mx-2" type="reset" id="btnreset" value="Reset">
     		</div>
     	</div>
+        </form>
+    	</div>
 	</div>
-
     <?php
+        // include_once("controller/cDieuBietOn.php");
+
+    ?>
+    <?php
+    showDBOByMonth();
     include_once("controller/cDieuBietOn.php");
+    
     if(isset($_REQUEST["addDBO"])){
         $noidung = $_REQUEST["noidung"];
         $thoigian = $_REQUEST["thoigian"];
         $username = $_REQUEST["username"];
         $p = new controlDBO();
         $kq = $p->addDBO($noidung, $thoigian, $username);
-        if($kq==1){
+        if($kq){
             echo "<script>alert('Thêm thành công')</script>";
-            echo header("refresh:0; url='index.php?vDieuBietOn.php'");
+            echo header("refresh:0; url='index.php?dieuBietOn'");
         }else{
             echo "Lỗi";
         }

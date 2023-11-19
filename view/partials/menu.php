@@ -12,8 +12,8 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php?dieutoibieton">
-                                Điều tôi biết ơn
+                            <a class="nav-link" href="index.php?bieudocamxuc">
+                                Biểu đồ cảm xúc
                             </a>
                         </li>
                         <li class="nav-item">
@@ -22,17 +22,13 @@
                             </a>
                         </li>
                         <li class="nav-item">
-<<<<<<< HEAD
-                            <a class="nav-link" href="index.php?ThoiQuen" name = "ThoiQuen">
-                                Những thói quen tôi muốn có
+                            <a class="nav-link" href="index.php?motthangnhinlai" name="menuMotThangNhinLai">
+                                Một tháng nhìn lại
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php?motThangNhinLai" name = "motThangNhinlai">
-=======
-                            <a class="nav-link" href="index.php?motthangnhinlai" name="menuMotThangNhinLai">
->>>>>>> 9411c6b024396d8f3cc83c3cb644dff0f0802520
-                                Một tháng nhìn lại
+                            <a class="nav-link" href="index.php?dieuBietOn" name="menuMotThangNhinLai">
+                                Điều biết ơn
                             </a>
                         </li>
                         <li class="nav-item">

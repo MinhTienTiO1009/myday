@@ -4,12 +4,12 @@
 <?php
     include_once 'ketnoi.php';
     function selectUser($ten,$pass){
-        $object = new conDB();
-        $connection = $object->connectDB($conn);
+        $object = new ConnectDataBase();
+        $connection = $object->connect($conn);
         if ($connection) {
             $queryCommand="SELECT * FROM NGUOIDUNG WHERE USERNAME = '$ten' AND MATKHAU=$pass";
             $data = mysqli_query($conn,$queryCommand);
-            $object->disconnectDB($conn);
+            $object->disconnect($conn);
             return $data;
         } else {
             return false;

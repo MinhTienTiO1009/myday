@@ -48,9 +48,9 @@
             </form>
         ';
     
-        echo "<h2>Nhin lai thang $a </h2>";
+        echo "<h2>Nhìn lại tháng $a </h2>";
     
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        if (isset($_REQUEST['submit'])) {
             $month = $_POST['Thang'];
             $tblMTNL = $p->getAllMTNLByMonth($month, 2023); // gọi tất cả sản phẩm thuộc comp
             displayMTNL($tblMTNL);
@@ -105,7 +105,7 @@
 <div class="col-lg-12">
 	<div class="card card-outline card-primary">
 		<div class="card-body">
-			<form action="" id="vAddMTNL">
+			<form action="" method="post" id="vAddMTNL">
         <input type="hidden" name="id" value="<?php echo isset($ma) ? $id : '' ?>">
 		<div class="row">
 			<div class="col-md-12">
@@ -146,31 +146,32 @@
             </div>
           </div>
 		</div>
-        </form>
-    	</div>
-    	<div class="card-footer border-top border-info">
+        <div class="card-footer border-top border-info">
     		<div class="d-flex w-100 justify-content-center align-items-center">
             <input class="btn btn-flat  bg-gradient-primary mx-2" type="submit" id="btn" name="addMTNL" value="Save">
             <input class="btn btn-flat  bg-gradient-primary mx-2" type="reset" id="btn" value="Cancle">
     		</div>
     	</div>
+        </form>
+    	</div>
 	</div>
 
     <?php
+    showMTNLByMonth();
     include_once("controller/cMotThangNL.php");
-    if(isset($_REQUEST["addDBO"])){
+    if(isset($_REQUEST["addMTNL"])){
         $than = $_REQUEST["than"];
         $tam = $_REQUEST["tam"];
         $tri = $_REQUEST["tri"];
         $thangnam = $_REQUEST["thangnam"];
         $username = $_REQUEST["username"];
         $p = new controlMTNL();
-        $kq = $p->addMTNL($than, $tam, $tri, $thangnam, $username);
-        if($kq==1){
+        $kq = $p->addMTNL($thangnam, $username, $than, $tam, $tri);
+        if($kq){
             echo "<script>alert('Thêm thành công')</script>";
-            echo header("refresh:0; url='index.php?vMotThangNL.php'");
+            echo header("refresh:0; url='index.php?motthangnhinlai'");
         }else{
-            echo "Lỗi";
+            echo "Thêm dữ liệu không thành công";
         }
     }
     ?>
