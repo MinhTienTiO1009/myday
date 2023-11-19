@@ -116,7 +116,7 @@ if (isset($_REQUEST["btnSubmit"])) {
 
     // start new
     // define avalible
-    $userName = "nguyenvana";
+    $userName = $_SESSION['username'];
     $controlNCT = new controlNgayCuaToi();
     $timeNow = date("Y-m-d");
     $note = 'Default';
@@ -132,17 +132,15 @@ if (isset($_REQUEST["btnSubmit"])) {
     // call function
     $resultWorkMyDay = $controlNCT->addWorkMyDay($valueEmoji, $valueWater, $checkWorkCount, $note, $timeNow, $userName);
     if ($resultWorkMyDay == 1) {
+        $result = $controlNCT->addWork($requestWorkArray, $timeNow, $note);
         echo "<script> alert('them du lieu thanh cong my day! ') </script>";
-    } else if ($result == 0) {
+        if ($result == 0) {
+            echo "<script> alert('khong the insert cong viec hang ngay! ') </script>";
+        }
+    } else if ($resultWorkMyDay == 0) {
         echo "<script> alert('khong the insert my day! ') </script>";
     }
 
-    $result = $controlNCT->addWork($requestWorkArray, $timeNow, $note);
-
-    if ($result == 1) {
-        echo "<script> alert('them du lieu thanh cong! ') </script>";
-    } else if ($result == 0) {
-        echo "<script> alert('khong the insert! ') </script>";
-    }
+    
 }
 ?>

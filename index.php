@@ -1,6 +1,7 @@
-
 <?php
-session_start();?>
+    session_start();
+    ob_start();
+?>
 <!DOCTYPE html>
 <html>
 
@@ -19,7 +20,7 @@ session_start();?>
 <body>
     <!-- hearder -->
     <?php
-    include('./view/partials/header.php');
+        include('./view/partials/header.php');
     ?>
     <div class="container-fluid">
         <div class="row">
@@ -32,8 +33,7 @@ session_start();?>
             <main id="content" class="col-md-9 ms-sm-auto col-lg-10 px-md-4" style="background-color: #efefef;">
                 <!-- Your content goes here -->
                 <?php
-                    include("view/vMainPage.php")
-            //    include('./view/Sukien/index.php');
+                    include("router.php");
                ?>
             </main>
         </div>

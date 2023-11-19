@@ -1,15 +1,11 @@
 <?php
-include 'connect.php';
-$err = [];
-session_start();
-if (isset($_SESSION['nguoidung'])) {
-  echo $_SESSION['nguoidung'];
-}
-
-
-if (isset($_POST['dangnhap'])) {
-    $username = $_POST['username'];
-    $password = $_POST['psw'];
+// $conn = mysqli_connect("localhost", "root", "", "mydayhandbook");
+// mysqli_set_charset($conn,'utf8');
+// $err = [];
+// session_start();
+// if (isset($_POST['dangnhap'])) {
+//     $username = $_POST['username'];
+//     $password = $_POST['psw'];
 
     if (empty($username)) {
         $err['username'] = "Vui lòng nhập tên đăng nhập";
@@ -31,17 +27,15 @@ if (isset($_POST['dangnhap'])) {
             // lưu vào session
             $_SESSION['nguoidung'] = $data['username'];
             $_SESSION['matKhau'] = $data['matKhau'];
-            // header('Location: /index.php');
-            // header('Location: /myday/index.php');
-    echo "<script>window.location.href = '../../index.php';</script>";
-
+            header('Location: /index.php');
+            header('Location: /myday/index.php');
         }else{
             $err['psw'] = "Sai mật khẩu";
         }
 
-    }else{
-        $err['username'] = "Tên đăng nhập không tồn tại";
-    }
-  }
-}
-?>
+//     }else{
+//         $err['username'] = "Tên đăng nhập không tồn tại";
+//     }
+//   }
+// }
+ ?>
