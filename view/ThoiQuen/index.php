@@ -1,7 +1,8 @@
 <?php
-    include_once "create.php";
+    // include_once "create.php";
+    // nut
 ?>
-<!-- <div>
+<div>
     <h4>
         Những thói quen tôi muốn có
     </h4>
@@ -44,4 +45,4 @@
             </tr>
         </tbody>
     </table>
-</div> -->
+</div>

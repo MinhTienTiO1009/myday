@@ -5,7 +5,7 @@
         $connection = $object->connectDB($conn);
         if ($connection) {
             $queryCommand = 'SELECT Day(ThoiGian) as ThoiGian, TrangThai FROM CAMXUC
-                            WHERE USERNAME = "nguyenvana" and month(thoigian) = '.$month;
+                            WHERE USERNAME = "'.$username.'" and month(thoigian) = '.$month;
             $data = mysqli_query($conn,$queryCommand);
             $object->disconnectDB($conn);
             return $data;
