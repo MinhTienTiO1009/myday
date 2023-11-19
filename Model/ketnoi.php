@@ -1,4 +1,3 @@
- 
 <?php
     class conDB{
         function connectDB(& $conn){
@@ -10,10 +9,8 @@
                 return false;
             }
         }
-
-        function disconnectDB($conn){
+        function disconnect($conn){
             mysqli_close($conn);
         }
-        
     }
 ?>

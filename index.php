@@ -1,7 +1,3 @@
-<?php
-    session_start();
-    ob_start();
-?>
 <!DOCTYPE html>
 <html>
 
@@ -16,12 +12,11 @@
     <link rel="stylesheet" href="./assets/fontawesome-free-6.1.1-web/css/all.css">
 </head>
 
-<body>
+<body>  
     <!-- hearder -->
     <?php
         include('./view/partials/header.php');
     ?>
-
     <div class="container-fluid">
         <div class="row">
             <!-- Aside (Menu) -->

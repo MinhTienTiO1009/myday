@@ -22,7 +22,6 @@ $conn = mysqli_connect($servername, $username, $password, $database);
  mysqli_close($conn);
 ?>
 
-
     <div id='calendar'></div>
     <script src="
 https://cdn.jsdelivr.net/npm/fullcalendar@6.1.9/index.global.min.js
