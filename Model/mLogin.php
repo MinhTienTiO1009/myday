@@ -7,7 +7,7 @@
         $object = new ConnectDataBase();
         $connection = $object->connect($conn);
         if ($connection) {
-            $queryCommand="SELECT * FROM NGUOIDUNG WHERE USERNAME = '$ten' AND MATKHAU=$pass";
+            $queryCommand="SELECT * FROM NGUOIDUNG WHERE USERNAME = '$ten' AND MATKHAU='$pass'";
             $data = mysqli_query($conn,$queryCommand);
             $object->disconnect($conn);
             return $data;

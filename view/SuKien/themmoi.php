@@ -3,7 +3,6 @@
  $currentUserName = $_SESSION['nguoidung'];
  if (!isset($_SESSION['nguoidung'])){
      echo "<script>window.location.href = '../DangNhap_DangKy/login.php';</script>";
- 
  }
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Include database connection code

@@ -13,10 +13,15 @@
         $display = 4 ;
     }elseif(array_key_exists('login', $_GET)){
         $display = 5 ;
+<<<<<<< HEAD
     }elseif(array_key_exists('motthangnhinlai', $_GET)){
         $display = 6;
     }elseif(array_key_exists('dieuBietOn', $_GET)){
         $display = 7;
+=======
+    }elseif(array_key_exists('logout', $_GET)){
+        $display = -5 ;
+>>>>>>> 91ec294f8259857c1a29b20ef4170b796fab736d
     }
 
     switch ($display) {
@@ -39,11 +44,16 @@
         case 5:
             include_once("view/Login/index.php");
             break;
+<<<<<<< HEAD
         case 6:
             include_once("view/MotThangNhinLai/vMotThangNL.php");
             break;
         case 7:
             include_once("view/DieuBietOn/vDieuBietOn.php");
+=======
+        case -5:
+            include_once("controller/logout.php");
+>>>>>>> 91ec294f8259857c1a29b20ef4170b796fab736d
             break;
         default:
             echo "page not found 404!";

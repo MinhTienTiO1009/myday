@@ -47,6 +47,7 @@
             echo header("Location: index.php?sukien");
             while ($row = mysqli_fetch_assoc($kq)) {
                 $_SESSION['username'] = $row['username'];
+                $_SESSION['login'] = true;
             }
         }
     }
