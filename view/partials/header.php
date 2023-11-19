@@ -23,9 +23,19 @@
                         <button class="btn"><i class="bi bi-bell"></i></button>
                     </div>
                     <!-- User Avatar -->
-                    <div class="text-end">
+                    <!-- <div class="text-end">
                         <button class="btn"><i class="bi bi-person-circle"></i></button>
-                    </div>
+                    </div> -->
+                    <div class="text-end">
+            <div class="btn-group">
+                <button class="btn"><i class="bi bi-person-circle"></i></button>
+                <button class="btn dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown"></button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Người dùng</a></li>
+                    <li><a class="dropdown-item" href="../DangNhap_DangKy/logout.php">Đăng xuất</a></li>
+                </ul>
+            </div>
+        </div>
                 </div>
             </div>
 

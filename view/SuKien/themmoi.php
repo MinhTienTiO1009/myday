@@ -1,10 +1,10 @@
 <?php
-
- $currentUserName = $_SESSION['username'];
-//  if (!isset($_SESSION['username'])){
-//      echo "<script>window.location.href = '../DangNhap_DangKy/login.php';</script>";
+ session_start();
+ $currentUserName = $_SESSION['nguoidung'];
+ if (!isset($_SESSION['nguoidung'])){
+     echo "<script>window.location.href = '../DangNhap_DangKy/login.php';</script>";
  
-//  }
+ }
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Include database connection code
     $servername = "localhost";
@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Insert data into the database
     $sql = "INSERT INTO sukien (TenSK, ThoiGian,Username) VALUES ('$title', '$start','$currentUserName')";
     if ($conn->query($sql) === TRUE) {
-        echo "<script>window.location.href = 'index.php?sukien';</script>";
+        echo "<script>window.location.href = '../../index.php';</script>";
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
