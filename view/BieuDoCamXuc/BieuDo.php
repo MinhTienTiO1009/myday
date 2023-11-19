@@ -9,6 +9,7 @@
         var ajax = new XMLHttpRequest();
         var method = "GET";
         var url = "data.php";
+        // var 
         var asynchrous = true;
 
         ajax.open(method, url, asynchrous);
@@ -19,6 +20,7 @@
             // (this.readyState==4 && this.status==200)?alert(this.responseText): alert("400");
             if (this.readyState==4 && this.status==200) {
               var response = JSON.parse(this.responseText);
+              
               console.log(response);
               var data = new google.visualization.DataTable();
               data.addColumn('string', 'ThoiGian');

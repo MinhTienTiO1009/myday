@@ -26,7 +26,7 @@
     function getMonth() {
         if(isset($_REQUEST['btnfilter'])){
             $m = $_REQUEST['thang'];
-            return $m;
+            echo $m;
         }
     }
 ?>

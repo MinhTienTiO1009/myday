@@ -1,10 +1,7 @@
-<<<<<<< HEAD
-=======
 <?php
     session_start();
     ob_start();
 ?>
->>>>>>> aaa50e7f9f1690ba57b45d7e4aaa86ab0deeab1b
 <!DOCTYPE html>
 <html>
 
@@ -22,23 +19,7 @@
 <body>
     <!-- hearder -->
     <?php
-<<<<<<< HEAD
-    include('./view/partials/header.php');
-    session_start();
-    $currentUserName = $_SESSION['nguoidung'];
-    if (!isset($_SESSION['nguoidung'])){
-        // header('location: /view/trangchu.php');
-        // echo "<script>window.location.href = '/view/trangchu.php';</script>";
-    
-    }
-    echo "WE ARE FUCK ";
-
-    echo "$currentUserName";
-
-    echo "123";
-=======
         include('./view/partials/header.php');
->>>>>>> aaa50e7f9f1690ba57b45d7e4aaa86ab0deeab1b
     ?>
 
     <div class="container-fluid">
@@ -52,13 +33,7 @@
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <!-- Your content goes here -->
                 <?php
-<<<<<<< HEAD
-                    // include("view/vMainPage.php");
-                    // include("view/DangNhap_DangKy/login.php");
-            //    include('./view/Sukien/index.php');
-=======
                     include("router.php");
->>>>>>> aaa50e7f9f1690ba57b45d7e4aaa86ab0deeab1b
                ?>
             </main>
         </div>
