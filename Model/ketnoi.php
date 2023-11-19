@@ -1,11 +1,13 @@
 <?php
-    class ConnectDataBase{
-        function connect(& $conn){
+    class conDB{
+        function connectDB(& $conn){
             $conn = mysqli_connect("localhost","root","","mydayhandbook");
-            // mysql_set_charset("utf8");
-            if($conn)
-                return mysqli_select_db($conn,"mydayhandbook");
-            return false;
+            mysqli_set_charset($conn, "utf8");
+            if ($conn){
+                return mysqli_select_db($conn, "mydayhandbook");
+            } else {
+                return false;
+            }
         }
         function disconnect($conn){
             mysqli_close($conn);

@@ -1,3 +1,3 @@
 <?php
-include ('bangSuKien.php');
+ include ('bangSuKien.php');
 ?>

@@ -1,3 +1,7 @@
+<?php
+    session_start();
+    ob_start();
+?>
 <!DOCTYPE html>
 <html>
 
@@ -5,16 +9,17 @@
     <title>Trang Chu</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./assets/style.css">
     <link rel="stylesheet" href="./assets/css/sukien.css">
     
     <link rel="stylesheet" href="./assets/css/styleOfTrieu.css">
     <link rel="stylesheet" href="./assets/fontawesome-free-6.1.1-web/css/all.css">
 </head>
 
-<body>
+<body>  
     <!-- hearder -->
     <?php
-    include('./view/partials/header.php');
+        include('./view/partials/header.php');
     ?>
 
     <div class="container-fluid">
@@ -28,8 +33,7 @@
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <!-- Your content goes here -->
                 <?php
-                    include("view/vMainPage.php")
-            //    include('./view/Sukien/index.php');
+                    include("router.php");
                ?>
             </main>
         </div>

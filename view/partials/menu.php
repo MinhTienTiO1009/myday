@@ -17,12 +17,12 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./view/BieuDoCamXuc/">
+                            <a class="nav-link" href="#">
                                 Tháng của tôi
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php?motthangnhinlai" name="menuMotThangNhinLai">
+                            <a class="nav-link" href="#">
                                 Một tháng nhìn lại
                             </a>
                         </li>
