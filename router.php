@@ -17,6 +17,8 @@
         $display = -5 ;
     }elseif(array_key_exists('themMoi', $_GET)){
         $display = 6 ;
+    }elseif(array_key_exists('create', $_GET)){
+        $display = 100 ;
     }
 
     switch ($display) {
@@ -45,6 +47,9 @@
          case 6:
             include_once("view/Sukien/themmoi.php");
              break;
+         case 100:
+            include_once("view/ThoiQuen/create.php");
+            break;
         default:
             echo "page not found 404!";
             break;        
