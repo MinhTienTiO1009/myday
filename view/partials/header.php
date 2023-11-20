@@ -36,7 +36,7 @@
                     if ($_SESSION['login']==true) {
                         echo '<li><a class="dropdown-item" href="index.php?logout">Đăng xuất</a></li>';
                     }else{
-                        echo '<li><a class="dropdown-item" href="index.php?login">Đăng nhap</a></li>';
+                        echo '<li><a class="dropdown-item" href="index.php?login">Đăng nhập</a></li>';
                     }
                     ?>
                     

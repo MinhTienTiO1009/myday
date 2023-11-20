@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        /* body {
-            font-family: Arial, sans-serif;
+        body {
+            /* font-family: Arial, sans-serif; */
             background-color: #f8f9fa;
             margin: 0;
             padding: 0;
-        } */
+        }
 
         h2 {
             color: #333;
@@ -104,13 +104,18 @@
                 if($result>0){
                     while($row = mysqli_fetch_assoc($tbl)){
                         $thang = $row['thangnam'];
-                        echo "<option value=$thang>$thang</option>";
+                    If ($_REQUEST['thang'] == $thang)
+                    {
+                        echo "<option selected value='$thang'>$thang</option>";
+                    } else {
+                        echo "<option value='$thang'>$thang</option>";
                     }
+                                }
                 }else{
                     echo "0 result";
                 }
                 echo '</select><input type="submit" name="submit" value="submit"></form>';
-                echo "<h2>Nhìn lại tháng qua</h2>";
+                echo "<b><h2>Nhìn lại tháng đã qua</h2></b>";
                 if (isset($_REQUEST['submit'])) {
                     $month = $_POST['thang'];
                     $tblMTNL = $p->getAllMTNLByMonth($month, 2023);
@@ -140,8 +145,9 @@
     function displayMTNL($tblMTNL){
         if ($tblMTNL) {
             if (mysqli_num_rows($tblMTNL) > 0){
-                echo "<table style='width: 100%' border='1px solid' margin='auto'>";
-                echo "<tr><th>Thang Nam</th><th>Than</th><th>Tam</th><th>Tri</th></tr>";
+                echo "<table style='width: 100%' border='1px solid' margin='auto' text-align: 'center'>";
+                echo "<tr><th style='text-align: center'>Tháng năm</th><th style='text-align: center'>Thân</th><th style='text-align: center'>Tâm</th><th style='text-align: center'>Trí</th></tr>";
+
                 // duyệt từng dòng dữ liệu trong kết quả nhận được sau khi truy vấn
                 while ($row = mysqli_fetch_assoc($tblMTNL)) {
                     echo "<tr>";
@@ -171,11 +177,12 @@
             <b><h2>Một tháng nhìn lại</h2></b>
             <b><h5>Chúc mừng bạn đã hoàn tất một tháng trọn vẹn.</h5></b>
             <b><h5>Hãy tự thưởng cho mình nhé!!!</h5></b>
+            <br></br>
 
 		<div class="row">
 			<div class="col-md-12">
 				<div class="form-group">
-					<label for="" class="control-label">Những điều bạn đã làm để THÂN khỏe và đẹp</label>
+					<label for="" class="control-label"><b>Những điều bạn đã làm để THÂN khỏe và đẹp</b></label>
 					<textarea class="form-control form-control-sm" name="than" rows="4" cols="50" placeholder="Hãy nhập việc bạn đã làm để tốt cho THÂN......" require></textarea>
 				</div>
 			</div>
@@ -183,7 +190,7 @@
         <div class="row">
 			<div class="col-md-12">
 				<div class="form-group">
-					<label for="" class="control-label">Những điều bạn đã làm để nuôi dưỡng TÂM hồn</label>
+					<label for="" class="control-label"><b>Những điều bạn đã làm để nuôi dưỡng TÂM hồn</b></label>
                     <textarea class="form-control form-control-sm" name="tam" rows="4" cols="50" placeholder="Hãy nhập việc bạn đã làm để nuôi TÂM......" require></textarea>
 				</div>
 			</div>
@@ -191,7 +198,7 @@
         <div class="row">
 			<div class="col-md-12">
 				<div class="form-group">
-					<label for="" class="control-label">Những điều bạn đã làm để phát triển Trí tuệ</label>
+					<label for="" class="control-label"><b>Những điều bạn đã làm để phát triển TRÍ tuệ</b></label>
                     <textarea class="form-control form-control-sm" name="tri" rows="4" cols="50" placeholder="Hãy nhập việc bạn đã làm để phát triển TRÍ......" require></textarea>
 				</div>
 			</div>

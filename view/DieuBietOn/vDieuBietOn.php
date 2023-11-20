@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            /* font-family: Arial, sans-serif; */
             background-color: #f8f9fa;
             margin: 0;
             padding: 0;
@@ -38,11 +38,6 @@
 
         th {
             background-color: #f2f2f2;
-        }
-
-        select {
-            padding: 8px;
-            width: 100px; 
         }
 
         .card {
@@ -95,41 +90,39 @@
 <body>
 
 <?php
-    function MonthByUser() {
+    include_once("controller/cDieuBietOn.php");
+    function showDBOByMonth() {
+        $p = new controlDBO();
         include_once("Model/ketnoi.php");
-            $p = new ConnectDataBase();
-            $connection = $p->connect($conn);
-            include_once("./controller/cDieuBietOn.php");
-            $object = new controlDBO();
-            if ($connection) {
-                $queryCommand = 'SELECT distinct month(ThoiGian) as ThoiGian FROM dieutoibieton WHERE username = "nguyenvana"';
-                $tbl = mysqli_query($conn, $queryCommand);
-                $result = mysqli_num_rows($tbl);
-                $p->disconnect($conn);
-                echo ('<form action="#" method="post"><select name="thang" id="thang">');
+        $a = new ConnectDataBase();
+        $connection = $a->connect($conn);
+        if($connection){
+            $str = "SELECT distinct month(ThoiGian) as thoigian FROM dieutoibieton WHERE username = 'nguyenvana'";
+            $tbl = mysqli_query($conn, $str);
+            $result = mysqli_num_rows($tbl);
+            $a->disconnect($conn);
+            echo ('<form action="#" method="post"><select name="thang" id="thang">');
                 if($result>0){
                     while($row = mysqli_fetch_assoc($tbl)){
-                        $thang = $row['ThoiGian'];
-                        echo "<option value=$thang>$thang</option>";
+                        $thang = $row['thoigian'];
+                    If ($_REQUEST['thang'] == $thang)
+                    {
+                        echo "<option selected value='$thang'>$thang</option>";
+                    } else {
+                        echo "<option value='$thang'>$thang</option>";
                     }
+                                }
                 }else{
                     echo "0 result";
                 }
                 echo '</select><input type="submit" name="submit" value="submit"></form>';
+                echo "<b><h2>Nhìn lại điều bạn biết ơn</h2></b>";
                 if (isset($_REQUEST['submit'])) {
                     $month = $_POST['thang'];
-                    $tblDBO = $object->getAllDBOByMonth($month, 2023);
+                    $tblDBO = $p->getAllDBOByMonth($month, 2023);
                     displayDBO($tblDBO);
-                    
                 }
-            } else {
-                return false;
-            }
-    };
-    include_once("./controller/cDieuBietOn.php");
-    function showDBOByMonth() {
-        $p = new controlDBO();
-        MonthByUser();
+            }return false;
     }
     function showDBO($tblDBO){
         if ($tblDBO) {
@@ -154,7 +147,7 @@
             if (mysqli_num_rows($tblDBO) > 0)
                 {
                 echo "<table style='width: 100%' border='1px solid' margin='auto'>";
-                echo "<tr><th>Nội dung</th><th>Thời gian</th></tr>";
+                echo "<tr><th style='text-align: center'>Nội dung</th><th style='text-align: center'>Thời gian</th></tr>";
                 while ($row = mysqli_fetch_assoc($tblDBO)) {
                     echo "<tr>";
                     echo '<td style ="width: 70%; height: 100px">';
@@ -178,11 +171,12 @@
 	<div class="card card-outline card-primary">
 		<div class="card-body">
 			<form action="" method="POST" id="vAddDBO">
-                <?php echo"<b><h2>Điều tôi biết ơn mỗi ngày</h2></b>"?>
+                <b><h2>Điều tôi biết ơn mỗi ngày</h2></b>
+                <br></br>
 		<div class="row">
 			<div class="col-md-12">
 				<div class="form-group">
-					<label for="" class="control-label">Điều bạn biết ơn</label>
+					<label for="" class="control-label"><b>Điều bạn biết ơn</b></label>
                     <textarea class="form-control form-control-sm" name="noidung" rows="4" cols="50" placeholder="Nhập điều bạn biết ơn hôm nay" require></textarea>
 				</div>
 			</div>
