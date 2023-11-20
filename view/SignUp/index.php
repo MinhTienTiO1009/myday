@@ -39,7 +39,7 @@
     </div>
 </form> -->
 
-<form class="signupForm" action="#" method="post" onsubmit="return validateForm()">
+<form class="signupForm loginForm content-mid" action="#" method="post" onsubmit="return validateForm()">
     <input type="text" class="info" id="ten" name="ten" placeholder="Vui lòng nhập tên cho lần đăng nhập tới">
     <span id="tenError" style="color: red; display: none;">Vui lòng điền tên đăng nhập!</span>
 

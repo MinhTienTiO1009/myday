@@ -55,7 +55,7 @@ if (!isset($_SESSION['username']) || $_SESSION['login'] !== true) {
 <body>
     <div class="container">
         <h1>Thông tin người dùng</h1>
-        <form method="post">
+        <form class="content-goals" method="post">
             <table>
                 <tr>
                     <td>
@@ -120,7 +120,7 @@ if (!isset($_SESSION['username']) || $_SESSION['login'] !== true) {
         </form>
         <br>
         <h1>Thiết lập nhắc nhở</h1>
-        <form method="post">
+        <form class="content-goals" method="post">
             <table>
                 <tr>
                     <td>

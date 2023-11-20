@@ -1,4 +1,10 @@
 <?php
+if (!isset($_SESSION['username']) || $_SESSION['login'] !== true) {
+    // Nếu chưa đăng nhập, chuyển hướng đến trang đăng nhập
+    header("Location: index.php?login");
+}
+?>
+<?php
     include_once("./controller/cMucTieu.php");
     if(isset($_REQUEST["Luu"])){
         $username = $_SESSION['username'];

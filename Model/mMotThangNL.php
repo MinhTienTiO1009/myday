@@ -10,10 +10,10 @@
                 return $tbl;
             }return false;
         }
-        function SelectAllMTNLByMonth($month,$year){
+        function SelectAllMTNLByMonth($month,$year, $username){
             $p = new conDB();
             if($p->connectDB($conn)){
-                $str = "SELECT * FROM motthangnhinlai where month(thangNam)= $month and year(thangNam)= $year";
+                $str = "SELECT * FROM motthangnhinlai where month(thangNam)= $month and year(thangNam)= $year and username ='$username'";
                 $tbl = mysqli_query($conn,$str);
                 $p->disconnect($conn);
                 return $tbl;

@@ -1,6 +1,6 @@
 <?php
 $servername = "localhost";
-$database = "mydayhandbook";
+$database = "mydaydb";
 $username = "root";
 $password = "";
 // Create connection

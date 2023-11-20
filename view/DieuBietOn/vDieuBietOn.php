@@ -4,6 +4,96 @@ if (!isset($_SESSION['username']) || $_SESSION['login'] !== true) {
     header("Location: index.php?login");
 }
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            /* font-family: Arial, sans-serif; */
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            color: #333;
+            text-align: center;
+        }
+
+        form {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: auto;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin: 20px;
+            padding: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .bg-gradient-primary {
+            background: linear-gradient(to right, #4e73df, #224abe);
+            color: #fff;
+        }
+
+        .btn-flat {
+            box-shadow: none;
+        }
+
+        .card-footer {
+            border-top: 1px solid #ddd;
+            margin-top: 20px;
+            padding-top: 20px;
+        }
+    </style>
+    <title>DIEU BIET ON</title>
+</head>
+<body>
 
 <?php
     include_once("controller/cDieuBietOn.php");
@@ -18,7 +108,7 @@ if (!isset($_SESSION['username']) || $_SESSION['login'] !== true) {
             $tbl = mysqli_query($conn, $str);
             $result = mysqli_num_rows($tbl);
             $a->disconnect($conn);
-            echo ('<form action="#" method="post"><select name="thang" id="thang">');
+            echo ('<form action="#" class="form-select-mon" method="post"><select name="thang" id="thang">');
                 if($result>0){
                     while($row = mysqli_fetch_assoc($tbl)){
                         $thang = $row['thoigian'];
@@ -36,7 +126,7 @@ if (!isset($_SESSION['username']) || $_SESSION['login'] !== true) {
                 echo "<b><h2>Nhìn lại điều bạn biết ơn</h2></b>";
                 if (isset($_REQUEST['submit'])) {
                     $month = $_POST['thang'];
-                    $tblDBO = $p->getAllDBOByMonth($month, 2023);
+                    $tblDBO = $p->getAllDBOByMonth($month, 2023, $_SESSION['username']);
                     displayDBO($tblDBO);
                 }
             }return false;
@@ -84,7 +174,7 @@ if (!isset($_SESSION['username']) || $_SESSION['login'] !== true) {
     
 ?>
 
-<div class="col-lg-12 container">
+<div class="col-lg-12">
 	<div class="card card-outline card-primary">
 		<div class="card-body">
 			<form action="" class="dieuBietOnForm" method="POST" id="vAddDBO">
@@ -124,3 +214,7 @@ if (!isset($_SESSION['username']) || $_SESSION['login'] !== true) {
         }
     }
     ?>
+
+</div>
+</body>
+</html>

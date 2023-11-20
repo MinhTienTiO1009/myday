@@ -82,7 +82,7 @@
                 $stringQuery = "INSERT INTO motngaycuatoi VALUES ( '$timeLineKey','$amountWater', '$countChecked', '$emotionDay','$note','$userName','$maDSCV' )";
             
                 $table = mysqli_query($con, $stringQuery);
-                $connect->disconnectDB($con);   
+                $connect->disconnect($con);   
                 return $table;
             }else{
                 return false;

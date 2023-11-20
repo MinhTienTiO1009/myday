@@ -107,7 +107,7 @@ if (!isset($_SESSION['username']) || $_SESSION['login'] !== true) {
             $tbl = mysqli_query($conn, $str);
             $result = mysqli_num_rows($tbl);
             $a->disconnect($conn);
-            echo ('<form action="#" method="post"><select name="thang" id="thang">');
+            echo ('<form class="form-select-mon" action="#" method="post"><select name="thang" id="thang">');
                 if($result>0){
                     while($row = mysqli_fetch_assoc($tbl)){
                         $thang = $row['thangnam'];
@@ -125,7 +125,7 @@ if (!isset($_SESSION['username']) || $_SESSION['login'] !== true) {
                 echo "<b><h2>Nhìn lại tháng đã qua</h2></b>";
                 if (isset($_REQUEST['submit'])) {
                     $month = $_POST['thang'];
-                    $tblMTNL = $p->getAllMTNLByMonth($month, 2023);
+                    $tblMTNL = $p->getAllMTNLByMonth($month, 2023, $_SESSION['username']);
                     displayMTNL($tblMTNL);
                 }
             }return false;

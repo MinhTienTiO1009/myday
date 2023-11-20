@@ -4,17 +4,10 @@ if (!isset($_SESSION['username']) || $_SESSION['login'] !== true) {
     header("Location: index.php?login");
 }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biểu đồ cảm xúc</title>
-</head>
-<body>
-    <div class="DropdownMenu">
+<div class="bieuDo">
+<div class="DropdownMenu">
         <h3 >Biểu đồ cảm xúc </h3>
-        <form action="" method="post">
+        <form class="form-select-mon" action="" method="post">
             <input type="text" name="bieuDoCamXuc" value='' hidden id="">
             <select name="thang" id="thang">
                 <?php
@@ -101,10 +94,8 @@ if (!isset($_SESSION['username']) || $_SESSION['login'] !== true) {
     <div id="chart_div"></div>
     <div>
       <form action="#" method="post">
-        <!-- <label for="ghiChu">Tháng này của tôi ngập tràng</label> -->
-        <textarea placeholder="Tháng này của tôi ngập tràn" name="ghiChu" id="ghiChu" cols="102" rows="5"></textarea>
+        <textarea placeholder="Tháng này của tôi ngập tràn" name="ghiChu" id="ghiChu" cols="100" rows="5"></textarea>
       </form>
     </div>
     </div>
-</body>
-</html>
+</div>

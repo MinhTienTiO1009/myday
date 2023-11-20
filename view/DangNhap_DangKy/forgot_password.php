@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../../assets/css/forgot_password.css">
     <title>Quên Mật Khẩu</title>
 </head>
 
@@ -108,7 +107,7 @@ function send_mail($email, $new_password){
     }
 }
 ?>
-    <form action="forgot_password.php" method="post">
+    <form class="loginForm content-mid" action="forgot_password.php" method="post">
         <div class="container">
             <h1>Quên Mật Khẩu</h1>
             <p>Nhập địa chỉ email của bạn để đặt lại mật khẩu.</p>

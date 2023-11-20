@@ -10,10 +10,10 @@
                 return $tbl;
             }return false;
         }
-        function SelectAllDBOByMonth($month, $year){
+        function SelectAllDBOByMonth($month, $year, $username){
             $p = new conDB();
             if($p->connectDB($conn)){
-                $str = "SELECT * FROM dieutoibieton where month(ThoiGian)= $month and year(ThoiGian)= $year";
+                $str = "SELECT * FROM dieutoibieton where month(ThoiGian)= $month and year(ThoiGian)= $year and username = '$username'";
                 $tbl = mysqli_query($conn,$str);
                 $p->disconnect($conn);
                 return $tbl;

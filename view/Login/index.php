@@ -12,7 +12,7 @@
     <a href="view/DangNhap_DangKy/forgot_password.php">Quên mật khẩu</a>
     </div>
 </form> -->
-<form class="loginForm" action="#" method="post">
+<form class="loginForm content-mid" action="#" method="post">
 <input type="text" id="username" class="info" name="ten" placeholder="Vui lòng nhập tên đăng nhập">
     <span id="usernameError" style="color: red; display: none;">Vui lòng điền tên đăng nhập!</span>
 
@@ -26,7 +26,7 @@
     <div>
     <a href="index.php">Bạn chưa có tài khoản</a>
     &nbsp;
-    <a href="view/DangNhap_DangKy/forgot_password.php">Quên mật khẩu</a>
+    <a href="index.php?forgot_password">Quên mật khẩu</a>
     </div>
 </form>
 <!-- <form action="process_login.php" method="post">

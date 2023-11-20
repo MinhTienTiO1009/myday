@@ -2,9 +2,9 @@
     include_once("Model/mDieuBietOn.php");
     class controlDBO{
         // lấy tất cả điều biết ơn theo tháng năm
-        function getAllDBOByMonth($month, $year){
+        function getAllDBOByMonth($month, $year, $username){
             $p = new modelDBO(); 
-            $tblDBO = $p->SelectAllDBOByMonth($month, $year); //trả về table
+            $tblDBO = $p->SelectAllDBOByMonth($month, $year, $username); //trả về table
             return $tblDBO;
         }
         function addDBO($noidung, $username){

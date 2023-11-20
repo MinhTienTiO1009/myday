@@ -15,7 +15,7 @@ include_once('ketnoi.php');
                 $string .= ", ngaySinh = '$NgaySinh'";
                 $string .= "where username = '$username'";
                 $ThongTin = mysqli_query($conn,$string);
-                $p->disconnectDB($conn);
+                $p->disconnect($conn);
                 return $ThongTin;
             } else {
                 return false;
@@ -32,7 +32,7 @@ include_once('ketnoi.php');
                     $string .= ", ghiChu = '$GhiChu'";
                     $string .= "where username = '$username'";
                     $ThoiGian = mysqli_query($conn,$string);
-                    $p->disconnectDB($conn);
+                    $p->disconnect($conn);
                     return $ThoiGian;
                 } else {
                     return false;

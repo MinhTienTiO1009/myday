@@ -13,6 +13,7 @@ ob_start();
     <link rel="stylesheet" href="./assets/css/sukien.css">
     <link rel="stylesheet" href="./assets/css/styleOfTrieu.css">
     <link rel="stylesheet" href="./assets/fontawesome-free-6.1.1-web/css/all.css">
+    <script src="./assets/NgayCuaToi.js"></script>
 </head>
 
 <body>  

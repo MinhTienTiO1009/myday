@@ -29,6 +29,8 @@
         $display = 11 ;
     }elseif(array_key_exists('mucTieuThang', $_GET)){
         $display = 12 ;
+    }elseif(array_key_exists('aboutUs', $_GET)){
+        $display = 13 ;
     }
 
     switch ($display) {
@@ -74,7 +76,10 @@
             break;
         case 12:
             include_once("view/mucTieuThang/MTT.php");
-            break;    
+            break;  
+        case 13:
+            include_once("view/about/about.php");
+            break;   
         default:
             echo "page not found 404!";
             break;        

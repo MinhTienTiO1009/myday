@@ -38,9 +38,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         
     ?>
-<div class="habit">
+<div class="">
 <h4>Bạn muốn tập thói quen gì</h4> <br>
-<form  method="post">
+<form class="content-mid loginForm"  method="post">
     <input type="text" class="txtThoiQuen" name ="tenThoiQuen" placeholder = "Hãy nhập thói quen muốn có"><br>
     <input type="text" class="txtThoiQuen" name ="moTa" placeholder = "Mô tả"> <br>
     <input type="datetime-local"  name ="TQThang" > <br>

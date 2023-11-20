@@ -3,17 +3,18 @@
             <!-- Left Section -->
             <div class="col-xs-12 d-md-block sidebar">
                 <!-- Icon -->
-                <div >
-                    <!-- Logo -->
-                    <img src="logo.png" alt="Logo" class="img-fluid" style="max-width: 100px;">
-                </div>
+                
                 <!-- Banner -->
                 
             </div>
             <!-- Right Section -->
             <div class="row">
             <div class="banner col-xs-12 col-md-6 col-lg-3">
-                    <label>Pheonix</label>
+                    <!-- <label>Pheonix</label> -->
+                    <div >
+                    <!-- Logo -->
+                    <img src="img/logo.png" alt="Logo" class="img-fluid" style="max-width: 100px;">
+                </div>
             </div>
             <div class="col-md-6 col-lg-9">
                 <div class="d-flex justify-content-end align-items-center">

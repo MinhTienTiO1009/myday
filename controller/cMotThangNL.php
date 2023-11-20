@@ -2,9 +2,9 @@
     include_once("Model/mMotThangNL.php");
     class controlMTNL{
         // lấy tất cả điều biết ơn theo tháng năm
-        function getAllMTNLByMonth($month, $year){
+        function getAllMTNLByMonth($month, $year, $username){
             $p = new modelMTNL(); 
-            $tblMTNL = $p->SelectAllMTNLByMonth($month, $year); //trả về table
+            $tblMTNL = $p->SelectAllMTNLByMonth($month, $year, $username); //trả về table
             return $tblMTNL;
         }
         function addMTNL($username, $than, $tam, $tri) {

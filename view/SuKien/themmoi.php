@@ -5,7 +5,7 @@
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Include database connection code
     $servername = "localhost";
-    $database = "mydayhandbook";
+    $database = "mydaydb";
     $username = "root";
     $password = "";
     $conn = mysqli_connect($servername, $username, $password, $database);
