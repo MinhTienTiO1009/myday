@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Connection failed: " . mysqli_connect_error());
     }
  
-    // Get form data
+    // Get form data  
     $title = $_POST['title'];
     $start = $_POST['start'];
 

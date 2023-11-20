@@ -19,6 +19,8 @@
         $display = 6 ;
     }elseif(array_key_exists('bieuDoCamXuc', $_GET)){
         $display = 7 ;
+    }elseif(array_key_exists('createThoiQuen', $_GET)){
+        $display = 8 ;
     }
 
     switch ($display) {
@@ -46,10 +48,13 @@
             break;
         case 6:
             include_once("view/Sukien/themmoi.php");
-             break;
+            break;
         case 7:
             include_once("view/BieuDoCamXuc/index.php");
-             break;
+            break;
+        case 8:
+            include_once("view/ThoiQuen/create.php");
+            break;
         default:
             echo "page not found 404!";
             break;        

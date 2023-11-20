@@ -1,12 +1,36 @@
+
 <?php
-    // include_once "create.php";
-    // nut
+$servername = "localhost";
+$database = "mydayhandbook";
+$username = "root";
+$password = "";
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $database);
+ $currentUserName = $_SESSION['username'];
+ if (!isset($_SESSION['username'])){
+     // echo "<script>window.location.href = './view/DangNhap_DangKy/login.php';</script>";
+
+ }
+ $sql = "SELECT tenThoiQuen,TQThang,UserName FROM thoiquen WHERE UserName = '$currentUserName' ORDER BY TQThang ASC";
+
+//  $result = $conn->query($sql);
+
+//  $sukien = $result->fetch_all(MYSQLI_ASSOC);
+ // Check connection
+ if (!$conn) {
+     die("Connection failed: " . mysqli_connect_error());
+ }
+ mysqli_close($conn);
 ?>
 <div>
     <h4>
         Những thói quen tôi muốn có
     </h4>
     <h6>Hãy cho bản thân 21 ngày để phát triển</h6>
+    <a href="index.php?createThoiQuen"
+    >
+    <button>Add</button>
+</a>
     <table>
         <thead>
             <tr>
@@ -45,4 +69,4 @@
             </tr>
         </tbody>
     </table>
-</div>
+</div> 

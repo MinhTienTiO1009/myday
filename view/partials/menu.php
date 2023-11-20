@@ -21,8 +21,13 @@
                                 Tháng của tôi
                             </a>
                         </li>
+                        <li>
+                            <a class="nav-link" href="index.php?ThoiQuen" name = "ThoiQuen">
+                                Những thói quen tôi muốn có
+                            </a>
+                        </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php">
+                            <a class="nav-link" href="index.php?motThangNhinLai" name = "motThangNhinlai">
                                 Một tháng nhìn lại
                             </a>
                         </li>
