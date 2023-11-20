@@ -11,8 +11,21 @@ class controlNgayCuaToi
         return $tblNgayCuaToi;
     }
 
+    function getWorkByUserName_Day($userName, $timeQuery)
+    {
+        $modelNCT = new modelNgayCuaToi();
+        $tblNgayCuaToi = $modelNCT ->selectWork($userName, $timeQuery);
+        return $tblNgayCuaToi;
+    }
 
-    function addWork($WorkArray, $timeLine, $takeNote)
+    function updateWorkByUserName_Day($userName, $date, $amountWater, $statusCheck, $emotionDay)
+    {
+        $modelNCT = new modelNgayCuaToi();
+        $tblNgayCuaToi = $modelNCT ->updateStatusWork($userName, $date, $amountWater, $statusCheck, $emotionDay);
+        return $tblNgayCuaToi;
+    }
+
+    function addWork($WorkArray, $timeLine, $maDSCV)
     {
 
         $modelNCT = new modelNgayCuaToi();
@@ -25,7 +38,7 @@ class controlNgayCuaToi
         }
 
         foreach ($tasks as $taskWork) {
-            $result = $modelNCT->insertWork($taskWork, $timeLine, $takeNote);
+            $result = $modelNCT->insertWork($taskWork, $timeLine, $maDSCV);
         }
 
         if ($result) {
@@ -63,11 +76,11 @@ class controlNgayCuaToi
         return $checkedCount;
     }
 
-    function addWorkMyDay($valueEmoji, $valueWater, $checkWorkCount, $note, $timeNow, $userName)
+    function addWorkMyDay($valueEmoji, $valueWater, $checkWorkCount, $note, $timeNow, $userName, $maDSCV)
     {
         // define 
         $modelNCT = new modelNgayCuaToi();
-        $result = $modelNCT->insertWorkMyDay($timeNow, $valueWater, $checkWorkCount, $valueEmoji, $note, $userName);
+        $result = $modelNCT->insertWorkMyDay($timeNow, $valueWater, $checkWorkCount, $valueEmoji, $note, $userName, $maDSCV);
         if ($result) {
             return 1;
         } else {

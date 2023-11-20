@@ -20,14 +20,14 @@
         }
 
 
-        function insertWork ($nameWork, $timeLine, $takeNote){
+        function insertWork ($nameWork, $timeLine, $maDSCV){
             
             $connect = new conDB();
             $con;
             $result = $connect->connectDB ($con);
             if( $result){
                
-                $stringQuery = "INSERT INTO congviecquantrong VALUES ( NULL,'$nameWork', '$timeLine', '$takeNote' )";
+                $stringQuery = "INSERT INTO congviecquantrong VALUES ( NULL,'$nameWork', '$timeLine', '$maDSCV' )";
             
                 $table = mysqli_query($con, $stringQuery);
                 $connect->disconnectDB($con);
@@ -37,17 +37,52 @@
             }
         }
 
-        function insertWorkMyDay ($timeLineKey,$amountWater, $countChecked, $emotionDay,$note,$userName){
+        function selectWork ($userName, $timeQuery){
             
             $connect = new conDB();
             $con;
             $result = $connect->connectDB ($con);
             if( $result){
                
-                $stringQuery = "INSERT INTO motngaycuatoi VALUES ( '$timeLineKey','$amountWater', '$countChecked', '$emotionDay','$note','$userName' )";
+                $stringQuery = "SELECT tenCongViec FROM congviecquantrong cv INNER JOIN motngaycuatoi mnct ON cv.maDSCongViec = mnct.maDSCongViec WHERE mnct.username = '$userName' and mnct.ngayThang = '$timeQuery'";
             
                 $table = mysqli_query($con, $stringQuery);
                 $connect->disconnectDB($con);
+                return $table;
+            }else{
+                return false;
+            }
+        }
+
+        function updateStatusWork ($userName, $date, $amountWater, $statusCheck, $emotionDay){
+            
+            $connect = new conDB();
+            $con;
+            $result = $connect->connectDB ($con);
+            if( $result){
+               
+                $stringQuery = "UPDATE motngaycuatoi SET luongNuocDaUong = $amountWater, trangThai = $statusCheck, camXucCaNgay = $emotionDay WHERE ngayThang = '$date' AND username = '$userName'";
+                
+                $table = mysqli_query($con, $stringQuery);
+                $connect->disconnectDB($con);
+                return $table;
+                // return $stringQuery;
+            }else{
+                return false;
+            }
+        }
+
+        function insertWorkMyDay ($timeLineKey,$amountWater, $countChecked, $emotionDay,$note,$userName, $maDSCV){
+            
+            $connect = new conDB();
+            $con;
+            $result = $connect->connectDB ($con);
+            if( $result){
+               
+                $stringQuery = "INSERT INTO motngaycuatoi VALUES ( '$timeLineKey','$amountWater', '$countChecked', '$emotionDay','$note','$userName','$maDSCV' )";
+            
+                $table = mysqli_query($con, $stringQuery);
+                $connect->disconnectDB($con);   
                 return $table;
             }else{
                 return false;

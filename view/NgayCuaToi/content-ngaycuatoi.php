@@ -1,3 +1,52 @@
+<?php
+    include_once("controller/cNgayCuaToi.php");
+    date_default_timezone_set("Asia/Ho_Chi_Minh");
+
+    $userName = $_SESSION['username'];
+    
+    $timeNow = date("Y-m-d");
+    $controlNCT = new controlNgayCuaToi();
+    $tblWork = $controlNCT ->getWorkByUserName_Day($userName, $timeNow);
+ 
+    
+    if($tblWork){
+        $WorkName1 = '' ;
+        $WorkName2 = '' ;
+        $WorkName3 = '' ;
+        $WorkName4 = '' ;
+        $WorkName5 = '' ;
+        $WorkName6 = '' ;
+        if(mysqli_num_rows($tblWork) >= 3){
+        
+            $allRows = array();
+            while ($row = mysqli_fetch_assoc($tblWork)) {
+                $allRows[] = $row;
+            }
+
+            if (count($allRows) >= 3) { // Kiểm tra để đảm bảo mảng có ít nhất 2 phần tử
+                $WorkName1 = $allRows[0]['tenCongViec'];
+                $WorkName2 = $allRows[1]['tenCongViec'];
+                $WorkName3 = $allRows[2]['tenCongViec'];
+                
+                if (isset($allRows[3]['tenCongViec']) && !empty($allRows[3]['tenCongViec'])) {
+                    $WorkName4 = $allRows[3]['tenCongViec'];
+                } 
+                if (isset($allRows[4]['tenCongViec']) && !empty($allRows[4]['tenCongViec'])) {
+                    $WorkName5 = $allRows[4]['tenCongViec'];
+                }
+                if (isset($allRows[5]['tenCongViec']) && !empty($allRows[5]['tenCongViec'])) {
+                    $WorkName6 = $allRows[5]['tenCongViec'];
+
+                }                    
+            }         
+            
+        }
+
+    }else{
+        echo "error";
+    }
+?>
+
 <div class="content-todo">
     <div class="header-content-todo">
         <span class="check-icon"><i class="fa-solid fa-check"></i></span>
@@ -22,32 +71,32 @@
             <form action="#" id="myForm" method="POST" class="input-form input-form-work" enctype="multipart/form-data">
                 <div id="input-task" class="text-input ">
                     <input type="checkbox" class="check_test" name="checkboxes[]" value="value1" id="">
-                    <input type="text" class="text_test" name="input-work1" placeholder="nhập công việc" id="">
+                    <input type="text" class="text_test" name="input-work1" placeholder="nhập công việc" id="" <?php echo "value= '$WorkName1'";  ?>>
                 </div>
 
                 <div id="input-task" class="text-input ">
                     <input type="checkbox" class="check_test" name="checkboxes[]" value="value2" id="">
-                    <input type="text" class="text_test" name="input-work2" placeholder="nhập công việc" id="">
+                    <input type="text" class="text_test" name="input-work2" placeholder="nhập công việc" id="" <?php echo "value= '$WorkName2'";  ?>>
                 </div>
 
                 <div id="input-task" class="text-input ">
                     <input type="checkbox" class="check_test" name="checkboxes[]" value="value3" id="">
-                    <input type="text" class="text_test" name="input-work3" placeholder="nhập công việc" id="">
+                    <input type="text" class="text_test" name="input-work3" placeholder="nhập công việc" id="" <?php echo "value= '$WorkName3'";  ?>>
                 </div>
 
                 <div id="input-task" class="text-input ">
                     <input type="checkbox" class="check_test" name="checkboxes[]" value="value4" id="">
-                    <input type="text" class="text_test" name="input-work4" placeholder="nhập công việc" id="">
+                    <input type="text" class="text_test" name="input-work4" placeholder="nhập công việc" id="" <?php echo "value= '$WorkName4'";  ?>>
                 </div>
 
                 <div id="input-task" class="text-input ">
                     <input type="checkbox" class="check_test" name="checkboxes[]" value="value5" id="">
-                    <input type="text" class="text_test" name="input-work5" placeholder="nhập công việc" id="">
+                    <input type="text" class="text_test" name="input-work5" placeholder="nhập công việc" id="" <?php echo "value= '$WorkName5'";  ?>>
                 </div>
 
                 <div id="input-task" class="text-input ">
                     <input type="checkbox" class="check_test" name="checkboxes[]" value="value6" id="">
-                    <input type="text" class="text_test" name="input-work6" placeholder="nhập công việc" id="">
+                    <input type="text" class="text_test" name="input-work6" placeholder="nhập công việc" id="" <?php echo "value= '$WorkName6'";  ?>>
                 </div>
 
         </div>
@@ -108,17 +157,14 @@
 
 
 <?php
-include_once("controller/cNgayCuaToi.php");
-date_default_timezone_set("Asia/Ho_Chi_Minh");
 
-
-if (isset($_REQUEST["btnSubmit"])) {
+if (isset($_REQUEST["btnSubmit"]) && empty($WorkName1)) {
 
     // start new
     // define avalible
-    $userName = $_SESSION['username'];
-    $controlNCT = new controlNgayCuaToi();
-    $timeNow = date("Y-m-d");
+    // $userName = $_SESSION['username'];
+    // $controlNCT = new controlNgayCuaToi();
+    // $timeNow = date("Y-m-d");
     $note = 'Default';
     $requestWorkArray = "input-work";
     $checked = "checkboxes";
@@ -128,19 +174,40 @@ if (isset($_REQUEST["btnSubmit"])) {
     $valueEmoji = $controlNCT->getValue($emojiPost);
     $valueWater = $controlNCT->getValue($waterPost);
     $checkWorkCount = $controlNCT->getCountChecked($checked);
+    $maDanhSachCongViec = $userName.'-'. $timeNow; 
 
     // call function
-    $resultWorkMyDay = $controlNCT->addWorkMyDay($valueEmoji, $valueWater, $checkWorkCount, $note, $timeNow, $userName);
+    $resultWorkMyDay = $controlNCT->addWorkMyDay($valueEmoji, $valueWater, $checkWorkCount, $maDanhSachCongViec, $timeNow, $userName, $maDanhSachCongViec);
     if ($resultWorkMyDay == 1) {
-        $result = $controlNCT->addWork($requestWorkArray, $timeNow, $note);
+        $result = $controlNCT->addWork($requestWorkArray, $timeNow, $maDanhSachCongViec);
         echo "<script> alert('them du lieu thanh cong my day! ') </script>";
         if ($result == 0) {
             echo "<script> alert('khong the insert cong viec hang ngay! ') </script>";
         }
     } else if ($resultWorkMyDay == 0) {
         echo "<script> alert('khong the insert my day! ') </script>";
+    }    
+}
+
+if (isset($_REQUEST["btnSubmit"]) && !empty($WorkName1) && !empty($WorkName2) && !empty($WorkName3)) {
+    // $userName = $_SESSION['username'];
+    // $controlNCT = new controlNgayCuaToi();
+    // $timeNow = date("Y-m-d");
+    
+    $emojiPost = 'emoji';
+    $waterPost = 'water';
+    $valueEmoji = $controlNCT->getValue($emojiPost);
+    $valueWater = $controlNCT->getValue($waterPost);
+    $checked = "checkboxes";
+    $checkWorkCount = $controlNCT->getCountChecked($checked);
+
+    $resultUpdateWorkByUserName_Day = $controlNCT -> updateWorkByUserName_Day($userName,$timeNow, $valueWater, $checkWorkCount, $valueEmoji);
+    
+    if($resultUpdateWorkByUserName_Day){
+        echo "<script> alert('Status successful update') </script>";
+    }else {
+        echo "<script> alert('Status failed update') </script>";
     }
 
-    
 }
 ?>
