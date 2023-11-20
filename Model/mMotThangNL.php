@@ -19,15 +19,11 @@
                 return $tbl;
             }return false;
         }
-        function insertMTNL($thangnam, $username, $than, $tam, $tri){
+        function insertMTNL($username, $than, $tam, $tri){
             $p = new ConnectDataBase();
             if ($p->connect($conn)) {
-                $parsedDate = date_parse_from_format("Y-m", $thangnam);
-                $thang = $parsedDate['month'];
-        
-                $string = "INSERT INTO motthangnhinlai(thangNam, username, than, tam, tri)";
-                $string .= " VALUES('" . $thang . "', N'" . $username . "', N'" . $than . "', N'" . $tam . "', N'" . $tri . "')";
-                
+                $string = "INSERT INTO motthangnhinlai(username, than, tam, tri)";
+                $string .= " VALUES(N'" . $username . "', N'" . $than . "', N'" . $tam . "', N'" . $tri . "')";
                 $table = mysqli_query($conn,$string);
                 $p->disconnect($conn);
                 return $table;

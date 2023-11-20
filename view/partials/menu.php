@@ -22,13 +22,13 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php?motthangnhinlai" name="menuMotThangNhinLai">
-                                Một tháng nhìn lại
+                            <a class="nav-link" href="index.php?dieuBietOn" name="menuMotThangNhinLai">
+                                Điều biết ơn
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php?dieuBietOn" name="menuMotThangNhinLai">
-                                Điều biết ơn
+                            <a class="nav-link" href="index.php?motthangnhinlai" name="menuMotThangNhinLai">
+                                Một tháng nhìn lại
                             </a>
                         </li>
                         <li class="nav-item">

@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+        /* body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        } */
+
         h2 {
             color: #333;
             text-align: center;
@@ -32,6 +39,51 @@
         th {
             background-color: #f2f2f2;
         }
+
+        .card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin: 20px;
+            padding: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .bg-gradient-primary {
+            background: linear-gradient(to right, #4e73df, #224abe);
+            color: #fff;
+        }
+
+        .btn-flat {
+            box-shadow: none;
+        }
+
+        .card-footer {
+            border-top: 1px solid #ddd;
+            margin-top: 20px;
+            padding-top: 20px;
+        }
     </style>
     <title>MOT THANG NHIN LAI</title>
 </head>
@@ -40,21 +92,31 @@
     include_once("controller/cMotThangNL.php");
     function showMTNLByMonth() {
         $p = new controlMTNL();
-        
-        $a = '    
-            <form action="" method="post">
-                <input type="text" name="Thang">
-                <input type="submit" name="submit">
-            </form>
-        ';
-    
-        echo "<h2>Nhìn lại tháng $a </h2>";
-    
-        if (isset($_REQUEST['submit'])) {
-            $month = $_POST['Thang'];
-            $tblMTNL = $p->getAllMTNLByMonth($month, 2023); // gọi tất cả sản phẩm thuộc comp
-            displayMTNL($tblMTNL);
-        }
+        include_once("Model/ketnoi.php");
+        $a = new ConnectDataBase();
+        $connection = $a->connect($conn);
+        if($connection){
+            $str = "SELECT distinct month(thangNam) as thangnam FROM motthangnhinlai WHERE username = 'nguyenvana'";
+            $tbl = mysqli_query($conn, $str);
+            $result = mysqli_num_rows($tbl);
+            $a->disconnect($conn);
+            echo ('<form action="#" method="post"><select name="thang" id="thang">');
+                if($result>0){
+                    while($row = mysqli_fetch_assoc($tbl)){
+                        $thang = $row['thangnam'];
+                        echo "<option value=$thang>$thang</option>";
+                    }
+                }else{
+                    echo "0 result";
+                }
+                echo '</select><input type="submit" name="submit" value="submit"></form>';
+                echo "<h2>Nhìn lại tháng qua</h2>";
+                if (isset($_REQUEST['submit'])) {
+                    $month = $_POST['thang'];
+                    $tblMTNL = $p->getAllMTNLByMonth($month, 2023);
+                    displayMTNL($tblMTNL);
+                }
+            }return false;
     }
 
     function showMTNL($tblMTNL){
@@ -79,12 +141,12 @@
         if ($tblMTNL) {
             if (mysqli_num_rows($tblMTNL) > 0){
                 echo "<table style='width: 100%' border='1px solid' margin='auto'>";
-                echo "<tr><th>Thang Nam</th><th>Ghi chu</th><th>Than</th><th>Tam</th><th>Tri</th></tr>";
+                echo "<tr><th>Thang Nam</th><th>Than</th><th>Tam</th><th>Tri</th></tr>";
                 // duyệt từng dòng dữ liệu trong kết quả nhận được sau khi truy vấn
                 while ($row = mysqli_fetch_assoc($tblMTNL)) {
                     echo "<tr>";
                     echo '<td style ="width: 25%; height: 100px">';
-                    echo $row['thangNam']."</td><td>".$row['ghiChu']."</td><td>".$row['than']."</td><td>".$row['tam']."</td><td>".$row['tri']."</td>"; 
+                    echo $row['thangNam']."</td><td>".$row['than']."</td><td>".$row['tam']."</td><td>".$row['tri']."</td>"; 
                     echo "</td>";
                     echo "</tr>";
                 }
@@ -106,45 +168,33 @@
 	<div class="card card-outline card-primary">
 		<div class="card-body">
 			<form action="" method="post" id="vAddMTNL">
-        <input type="hidden" name="id" value="<?php echo isset($ma) ? $id : '' ?>">
+            <b><h2>Một tháng nhìn lại</h2></b>
+            <b><h5>Chúc mừng bạn đã hoàn tất một tháng trọn vẹn.</h5></b>
+            <b><h5>Hãy tự thưởng cho mình nhé!!!</h5></b>
+
 		<div class="row">
 			<div class="col-md-12">
 				<div class="form-group">
-					<label for="" class="control-label">Than</label>
-					<textarea class="form-control form-control-sm" name="than" rows="4" cols="50" require></textarea>
+					<label for="" class="control-label">Những điều bạn đã làm để THÂN khỏe và đẹp</label>
+					<textarea class="form-control form-control-sm" name="than" rows="4" cols="50" placeholder="Hãy nhập việc bạn đã làm để tốt cho THÂN......" require></textarea>
 				</div>
 			</div>
 		</div>
         <div class="row">
 			<div class="col-md-12">
 				<div class="form-group">
-					<label for="" class="control-label">Tam</label>
-                    <textarea class="form-control form-control-sm" name="tam" rows="4" cols="50" require></textarea>
-					<!-- <input type="textarea" class="form-control form-control-sm" name="tam" require> -->
+					<label for="" class="control-label">Những điều bạn đã làm để nuôi dưỡng TÂM hồn</label>
+                    <textarea class="form-control form-control-sm" name="tam" rows="4" cols="50" placeholder="Hãy nhập việc bạn đã làm để nuôi TÂM......" require></textarea>
 				</div>
 			</div>
 		</div>
         <div class="row">
 			<div class="col-md-12">
 				<div class="form-group">
-					<label for="" class="control-label">Tri</label>
-                    <textarea class="form-control form-control-sm" name="tri" rows="4" cols="50" require></textarea>
+					<label for="" class="control-label">Những điều bạn đã làm để phát triển Trí tuệ</label>
+                    <textarea class="form-control form-control-sm" name="tri" rows="4" cols="50" placeholder="Hãy nhập việc bạn đã làm để phát triển TRÍ......" require></textarea>
 				</div>
 			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-6">
-            <div class="form-group">
-              <label for="" class="control-label">Thang nam</label>
-              <input type="date" class="form-control form-control-sm" autocomplete="off" name="thangnam" require>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="form-group">
-              <label for="" class="control-label">Tên người dùng</label>
-              <input type="text" class="form-control form-control-sm" name="username" require>
-            </div>
-          </div>
 		</div>
         <div class="card-footer border-top border-info">
     		<div class="d-flex w-100 justify-content-center align-items-center">
@@ -163,15 +213,15 @@
         $than = $_REQUEST["than"];
         $tam = $_REQUEST["tam"];
         $tri = $_REQUEST["tri"];
-        $thangnam = $_REQUEST["thangnam"];
-        $username = $_REQUEST["username"];
+        $username = $_SESSION['username'];
         $p = new controlMTNL();
-        $kq = $p->addMTNL($thangnam, $username, $than, $tam, $tri);
+        $kq = $p->addMTNL($username, $than, $tam, $tri);
         if($kq){
             echo "<script>alert('Thêm thành công')</script>";
             echo header("refresh:0; url='index.php?motthangnhinlai'");
         }else{
-            echo "Thêm dữ liệu không thành công";
+            echo "<script>alert('Thêm dữ liệu thành công')</script>";
+            echo header("refresh:0; url='index.php?motthangnhinlai'");
         }
     }
     ?>
