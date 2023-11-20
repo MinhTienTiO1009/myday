@@ -8,14 +8,16 @@
 <body>
     <div class="DropdownMenu">
         <h3 >Biểu đồ cảm xúc </h3>
-        <form action="data.php" method="post">
+        <form action="" method="post">
+            <input type="text" name="bieuDoCamXuc" value='' hidden id="">
             <select name="thang" id="thang">
                 <?php
                     include_once("Model/ketnoi.php");
                     $object = new conDB();
                     $connection = $object->connectDB($conn);
                     if ($connection) {
-                        $queryCommand = 'SELECT distinct month(ThoiGian) as ThoiGian, TrangThai FROM CAMXUC WHERE USERNAME = "nguyenvana"';
+                        $queryCommand = 'SELECT DISTINCT month(ThoiGian) as ThoiGian FROM CAMXUC WHERE USERNAME = "nguyenvana"';
+          
                         $tbl = mysqli_query($conn, $queryCommand);
                         $result = mysqli_num_rows($tbl);
                         if($result>0){
@@ -33,10 +35,8 @@
         </form>
     </div>
     <?php
-        if (isset($_REQUEST['btnfilter'])) {
-            $thang = $_REQUEST['thang'];
-            echo $thang;
-        }
+        $thang = $_REQUEST['thang'] ?? date('m');
+        // var_dump($thang);
     ?>
     <div class="chart">
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
@@ -46,7 +46,10 @@
       function drawChart() {
         var ajax = new XMLHttpRequest();
         var method = "GET";
-        var url = "data.php";
+        var thang = <?php echo $thang?>;
+        var link = "data.php?thang="+thang;
+        var url = link;
+      console.log(url);
         var asynchrous = true;
         ajax.open(method, url, asynchrous);
 

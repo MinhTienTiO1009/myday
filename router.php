@@ -17,6 +17,8 @@
         $display = -5 ;
     }elseif(array_key_exists('themMoi', $_GET)){
         $display = 6 ;
+    }elseif(array_key_exists('bieuDoCamXuc', $_GET)){
+        $display = 7 ;
     }
 
     switch ($display) {
@@ -42,8 +44,11 @@
         case -5:
             include_once("controller/logout.php");
             break;
-         case 6:
+        case 6:
             include_once("view/Sukien/themmoi.php");
+             break;
+        case 7:
+            include_once("view/BieuDoCamXuc/index.php");
              break;
         default:
             echo "page not found 404!";
