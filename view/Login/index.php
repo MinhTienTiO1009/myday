@@ -36,6 +36,11 @@
     }
 </style>
 <?php
+
+    if (isset($_SESSION['username']) && $_SESSION['login'] == true) {
+        header("Location: index.php?sukien");
+    }
+
     if (isset($_REQUEST['submit'])) {
         $ten = $_REQUEST['ten'];
         $pass = $_REQUEST['pass'];

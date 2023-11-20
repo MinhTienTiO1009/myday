@@ -33,10 +33,15 @@
                 <ul class="dropdown-menu">
                     <!-- <li><a class="dropdown-item" href="#">Người dùng</a></li> -->
                     <?php
-                    if ($_SESSION['login']==true) {
+                    // if ($_SESSION['login']==true) {
+                    //     echo '<li><a class="dropdown-item" href="index.php?logout">Đăng xuất</a></li>';
+                    // }else{
+                    //     echo '<li><a class="dropdown-item" href="index.php?login">Đăng nhap</a></li>';
+                    // }
+                    if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
                         echo '<li><a class="dropdown-item" href="index.php?logout">Đăng xuất</a></li>';
-                    }else{
-                        echo '<li><a class="dropdown-item" href="index.php?login">Đăng nhap</a></li>';
+                    } else {
+                        echo '<li><a class="dropdown-item" href="index.php?login">Đăng nhập</a></li>';
                     }
                     ?>
                     

@@ -12,11 +12,11 @@
     }elseif(array_key_exists('ThoiQuen', $_GET)){
         $display = 4 ;
     }elseif(array_key_exists('login', $_GET)){
-        $display = 5 ;
+        $display = 5 ; 
     }elseif(array_key_exists('logout', $_GET)){
         $display = -5 ;
     }
-
+    
     switch ($display) {
         case 0:
             // include_once("view/Sukien/index.php");
@@ -44,5 +44,5 @@
             echo "page not found 404!";
             break;        
     }
-    
+
 ?>

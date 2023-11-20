@@ -1,3 +1,9 @@
+<?php
+if (!isset($_SESSION['username']) || $_SESSION['login'] !== true) {
+    // Nếu chưa đăng nhập, chuyển hướng đến trang đăng nhập
+    header("Location: index.php?login");
+}
+?>
 <div class="content-todo">
     <div class="header-content-todo">
         <span class="check-icon"><i class="fa-solid fa-check"></i></span>
