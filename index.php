@@ -9,9 +9,8 @@ ob_start();
     <title>Trang Chu</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="./assets/style.css">
+    <link rel="stylesheet" href="assets/style.css">
     <link rel="stylesheet" href="./assets/css/sukien.css">
-    
     <link rel="stylesheet" href="./assets/css/styleOfTrieu.css">
     <link rel="stylesheet" href="./assets/fontawesome-free-6.1.1-web/css/all.css">
 </head>

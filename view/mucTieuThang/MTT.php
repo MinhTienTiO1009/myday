@@ -1,15 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mục tiêu tháng</title>
+<?php
+    include_once("./controller/cMucTieu.php");
+    if(isset($_REQUEST["Luu"])){
+        $username = $_SESSION['username'];
+        $Chude = $_REQUEST['chude'];
+        $MT1 = $_REQUEST['mt1'];
+        $MT2 = $_REQUEST['mt2'];
+        $MT3 = $_REQUEST['mt3'];
+        $kq = addCD($username, $Chude);
+        $Luu = addMucTieu($username,$MT1, $MT2, $MT3);
+        if($Luu&&$kq){
+            echo "<script>arlert('Thêm thành công!');</script>";
+        } else{
+            echo "<script>arlert('Không thể thêm!');</script>";
+        }
+    }
+?> 
     <link rel="stylesheet" href="../assets/style.css">
     <link rel="stylesheet" href="../assets/bootstrap.min.css">
     <style>
-        input{
+        .inputT{
             width: 300px;
-            height: 20px;
+            height: 40px;
             border: 0;
             border-bottom: 2px solid black;
         }
@@ -22,10 +33,8 @@
             color: red;
         }
     </style>
-</head>
-<body>
-    <div class="container">
-        <form method="post" action="process.php"> <!-- Thay đổi action để trỏ đến trang xử lý dữ liệu -->
+    <div class="container content-goals">
+        <form method="post" action="#"> <!-- Thay đổi action để trỏ đến trang xử lý dữ liệu -->
             <table>
                 <tr>
                     <td colspan="2"><h1>
@@ -40,10 +49,10 @@
                         <h3>Chủ đề tháng: </h3>
                         <textarea 
                             name="chude" 
-                            cols="130" rows="10" 
-                            placeholder="Chủ đề tháng này" 
+                            cols="50" rows="5" 
+                            placeholder=" Chủ đề tháng này . . ." 
                             id="Chude" 
-                            onchange="checkFields()"
+                            onchange="checkFields"
                             ></textarea>
                         <script>
                             const checkFields = () =>{
@@ -66,15 +75,16 @@
                         </script>
                     </td>
                 </tr>
-                <tr>
+                <tr> 
                     <td>
                         <span id="tbChude" class="announce text-danger"></span>
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="2" style="text-align: center">
-                        <h2>MỤC TIÊU THÁNG</h2>
-                        1. <input type="text" name="mt1" placeholder="Mục tiêu 1" width="400px" id="mt1" onchange="kiemTraMT1()"> 
+                    <td colspan="3" style="text-align: center">
+                        <h3>MỤC TIÊU THÁNG</h3>
+                        <input type="checkbox" class="inputCheckbox" name="check1"> &nbsp;
+                        <input type="text" name="mt1" class="inputT" placeholder="Mục tiêu 1" width="400px" id="mt1" onchange="kiemTraMT1()"> 
                         <script>
                             const kiemTraMT1 = () =>{
                                 let mt1 = $("#mt1").val();
@@ -99,7 +109,8 @@
                         </script>
                         <br>
                         <span id="tbmt1" class="announce text-danger"></span> <br>
-                        2. <input type="text" name="mt2" placeholder="Mục tiêu 2" width="200px" id="mt2" onchange="kiemTraMT2()"> 
+                        <input type="checkbox" class="inputCheckbox" name="check2"> &nbsp; 
+                        <input type="text" name="mt2" class="inputT" placeholder="Mục tiêu 2" width="200px" id="mt2" onchange="kiemTraMT2()"> 
                         <script>
                             const kiemTraMT2 = () =>{
                                 let mt2 = $("#mt2").val();
@@ -124,7 +135,8 @@
                         </script>
                         <br>
                         <span id="tbmt2" class="announce text-danger"></span> <br>
-                        3. <input type="text" name="mt3" placeholder="Mục tiêu 3" width="200px" id="mt3" onchange="kiemTraMT3()">
+                        <input type="checkbox" class="inputCheckbox" name="check3"> &nbsp; 
+                        <input type="text" name="mt3" class="inputT" placeholder="Mục tiêu 3" id="mt3" onchange="kiemTraMT3()">
                         <script>
                             const kiemTraMT3 = () =>{
                                 let mt3 = $("#mt3").val();
@@ -150,11 +162,11 @@
                         <br> 
                         <span id="tbmt3" class="announce text-danger"></span>
                     </td>
-                </tr>
+                </tr> <br>
                 <tr>
-                    <td>&nbsp;</td>
-                    <td colspan="2">
-                        <button type="submit" onclick="luu()">Lưu</button> <!-- Gọi hàm luu() khi nhấn nút -->
+                    <td>&nbsp;</td> <br>
+                    <td>
+                        <button type="submit" name="Luu">Lưu</button> <!-- Gọi hàm luu() khi nhấn nút -->
                         <button type="reset">Hủy</button>
                     </td>
                 </tr>
@@ -162,5 +174,3 @@
         </form>
     </div>
     <script src="../assets/jquery-3.6.1.min.js"></script>
-</body>
-</html>

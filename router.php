@@ -21,6 +21,14 @@
         $display = 7 ;
     }elseif(array_key_exists('createThoiQuen', $_GET)){
         $display = 8 ;
+    }elseif(array_key_exists('dieutoibieton', $_GET)){
+        $display = 9 ;
+    }elseif(array_key_exists('taiKhoan', $_GET)){
+        $display = 10;
+    }elseif(array_key_exists('forgot_password', $_GET)){
+        $display = 11 ;
+    }elseif(array_key_exists('mucTieuThang', $_GET)){
+        $display = 12 ;
     }
 
     switch ($display) {
@@ -35,7 +43,7 @@
             include_once("view/SuKien/index.php");
             break;
         case 3:
-            include_once("view/BieuDoCamXuc/index.php");
+            include_once("view/MotThangNhinLai/vMotThangNL.php");
             break;
         case 4:
             include_once("view/ThoiQuen/index.php");
@@ -55,6 +63,18 @@
         case 8:
             include_once("view/ThoiQuen/create.php");
             break;
+        case 9:
+            include_once("view/DieuBietOn/vDieuBietOn.php");
+            break;
+        case 10:
+            include_once("view/taiKhoanNguoiDung/canhan.php");
+            break;     
+        case 11:
+            include_once("view/DangNhap_DangKy/forgot_password.php");
+            break;
+        case 12:
+            include_once("view/mucTieuThang/MTT.php");
+            break;    
         default:
             echo "page not found 404!";
             break;        

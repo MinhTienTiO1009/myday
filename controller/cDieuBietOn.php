@@ -7,16 +7,14 @@
             $tblDBO = $p->SelectAllDBOByMonth($month, $year); //trả về table
             return $tblDBO;
         }
-        function addDBO($noidung, $thoigian, $username){
+        function addDBO($noidung, $username){
             $p = new modelDBO();
-            $insert = $p->insertDBO($noidung, $thoigian, $username);
-            return $insert;
-        }
-
-        function getAllNoiDungByMonth($month, $year) {
-            $p = new modelDBO();
-            $tblDBO = $p->selectNoiDungByMonth($month, $year);
-            return $tblDBO;
+            $kq = $p->insertDBO($noidung, $username);
+            if ($kq !== false) {
+                return $kq;
+            } else {
+                return false;
+            }
         }
     }
 ?>

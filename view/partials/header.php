@@ -1,19 +1,21 @@
-<header class="container-fluid bg-primary p-2">
-        <div class="row">
+<header class="container-fluid header-web">
+        <div class="row header-web">
             <!-- Left Section -->
-            <div class="col-md-3 col-lg-2 d-md-block sidebar">
+            <div class="col-xs-12 d-md-block sidebar">
                 <!-- Icon -->
                 <div >
                     <!-- Logo -->
                     <img src="logo.png" alt="Logo" class="img-fluid" style="max-width: 100px;">
                 </div>
                 <!-- Banner -->
-                <div class="banner">
-                    <label>Discover amazing content here!</label>
-                </div>
+                
             </div>
             <!-- Right Section -->
-            <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            <div class="row">
+            <div class="banner col-xs-12 col-md-6 col-lg-3">
+                    <label>Pheonix</label>
+            </div>
+            <div class="col-md-6 col-lg-9">
                 <div class="d-flex justify-content-end align-items-center">
 
                     <div>
@@ -22,10 +24,6 @@
                     <div>
                         <button class="btn"><i class="bi bi-bell"></i></button>
                     </div>
-                    <!-- User Avatar -->
-                    <!-- <div class="text-end">
-                        <button class="btn"><i class="bi bi-person-circle"></i></button>
-                    </div> -->
                     <div class="text-end">
             <div class="btn-group">
                 <button class="btn"><i class="bi bi-person-circle"></i></button>
@@ -33,7 +31,7 @@
                 <ul class="dropdown-menu">
                     <!-- <li><a class="dropdown-item" href="#">Người dùng</a></li> -->
                     <?php
-                    if ($_SESSION['login']==true) {
+                    // if ($_SESSION['login']==true) {
                         // if ($_SESSION['login']==true) {
                         //     echo '<li><a class="dropdown-item" href="index.php?logout">Đăng xuất</a></li>';
                         // }else{
@@ -44,13 +42,11 @@
                         }else {
                             echo '<li><a class="dropdown-item" href="index.php?login">Đăng nhập</a></li>';
                         }
-                    }
+                    // }
                     ?>
                     
                 </ul>
             </div>
-        </div>
-                </div>
             </div>
 
         </div>

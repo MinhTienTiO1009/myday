@@ -7,6 +7,11 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href='index.php?mucTieuThang' name= "menuNgayCuaToi">
+                                Mục tiêu tháng
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href='index.php?menuNgayCuaToi' name= "menuNgayCuaToi">
                                 Ngày của tôi
                             </a>
@@ -14,11 +19,6 @@
                         <li class="nav-item">
                             <a class="nav-link" href="index.php?dieutoibieton">
                                 Điều tôi biết ơn
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                Tháng của tôi
                             </a>
                         </li>
                         <li>
@@ -33,7 +33,12 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="index.php?bieuDoCamXuc">
-                                BieuDoCamXuc
+                                Biểu đồ cảm xúc
+                        </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php?taiKhoan">
+                                Tài khoản
                         </a>
                         </li>
                         <li class="nav-item">
