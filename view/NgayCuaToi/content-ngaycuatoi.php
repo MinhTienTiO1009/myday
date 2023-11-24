@@ -77,32 +77,32 @@ if (!isset($_SESSION['username']) || $_SESSION['login'] !== true) {
             <form action="#" id="myForm" method="POST" class="input-form input-form-work" enctype="multipart/form-data">
                 <div id="input-task" class="text-input ">
                     <input type="checkbox" class="check_test" name="checkboxes[]" value="value1" id="">
-                    <input type="text" class="text_test" name="input-work1" placeholder="nhập công việc" id="" <?php echo "value= '$WorkName1'";  ?>>
+                    <input type="text" class="text_test" name="input-work1" placeholder="nhập công việc" require id="" <?php echo "value= '$WorkName1'";  ?>>
                 </div>
 
                 <div id="input-task" class="text-input ">
                     <input type="checkbox" class="check_test" name="checkboxes[]" value="value2" id="">
-                    <input type="text" class="text_test" name="input-work2" placeholder="nhập công việc" id="" <?php echo "value= '$WorkName2'";  ?>>
+                    <input type="text" class="text_test" name="input-work2" placeholder="nhập công việc" id="" require <?php echo "value= '$WorkName2'";  ?>>
                 </div>
 
                 <div id="input-task" class="text-input ">
                     <input type="checkbox" class="check_test" name="checkboxes[]" value="value3" id="">
-                    <input type="text" class="text_test" name="input-work3" placeholder="nhập công việc" id="" <?php echo "value= '$WorkName3'";  ?>>
+                    <input type="text" class="text_test" name="input-work3" placeholder="nhập công việc" id="" require <?php echo "value= '$WorkName3'";  ?>>
                 </div>
 
                 <div id="input-task" class="text-input ">
                     <input type="checkbox" class="check_test" name="checkboxes[]" value="value4" id="">
-                    <input type="text" class="text_test" name="input-work4" placeholder="nhập công việc" id="" <?php echo "value= '$WorkName4'";  ?>>
+                    <input type="text" class="text_test" name="input-work4" placeholder="nhập công việc" id="" require <?php echo "value= '$WorkName4'";  ?>>
                 </div>
 
                 <div id="input-task" class="text-input ">
                     <input type="checkbox" class="check_test" name="checkboxes[]" value="value5" id="">
-                    <input type="text" class="text_test" name="input-work5" placeholder="nhập công việc" id="" <?php echo "value= '$WorkName5'";  ?>>
+                    <input type="text" class="text_test" name="input-work5" placeholder="nhập công việc" id="" require <?php echo "value= '$WorkName5'";  ?>>
                 </div>
 
                 <div id="input-task" class="text-input ">
                     <input type="checkbox" class="check_test" name="checkboxes[]" value="value6" id="">
-                    <input type="text" class="text_test" name="input-work6" placeholder="nhập công việc" id="" <?php echo "value= '$WorkName6'";  ?>>
+                    <input type="text" class="text_test" name="input-work6" placeholder="nhập công việc" id="" require <?php echo "value= '$WorkName6'";  ?>>
                 </div>
 
         </div>
@@ -186,9 +186,12 @@ if (isset($_REQUEST["btnSubmit"]) && empty($WorkName1)) {
     $resultWorkMyDay = $controlNCT->addWorkMyDay($valueEmoji, $valueWater, $checkWorkCount, $maDanhSachCongViec, $timeNow, $userName, $maDanhSachCongViec);
     if ($resultWorkMyDay == 1) {
         $result = $controlNCT->addWork($requestWorkArray, $timeNow, $maDanhSachCongViec);
+        $resultEmotionsTable = $controlNCT -> addEmotinsDay($valueEmoji, $timeNow, $userName );
         echo "<script> alert('them du lieu thanh cong my day! ') </script>";
         if ($result == 0) {
             echo "<script> alert('khong the insert cong viec hang ngay! ') </script>";
+        }elseif ($resultEmotionsTable == 0) {
+            echo "<script> alert('khong the ghi vào bảng cảm xúc! ') </script>";
         }
     } else if ($resultWorkMyDay == 0) {
         echo "<script> alert('khong the insert my day! ') </script>";

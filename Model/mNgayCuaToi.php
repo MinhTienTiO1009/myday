@@ -89,5 +89,22 @@
             }
         }
 
+        function insertEmotionstable ($emotionDay, $date, $userName){
+            
+            $connect = new conDB();
+            $con;
+            $result = $connect->connectDB ($con);
+            if( $result){
+               
+                $stringQuery = "INSERT INTO `camxuc` VALUES (NULL,'$emotionDay','$date','$userName')";
+            
+                $table = mysqli_query($con, $stringQuery);
+                $connect->disconnect($con);
+                return $table;
+            }else{
+                return false;
+            }
+        }
+
     }
 ?>

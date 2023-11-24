@@ -87,4 +87,16 @@ class controlNgayCuaToi
             return 0; // khong insert duoc
         }
     }
+
+    function addEmotinsDay($emotionDay, $date, $userName)
+    {
+        // define 
+        $modelNCT = new modelNgayCuaToi();
+        $result = $modelNCT->insertEmotionstable ($emotionDay, $date, $userName);
+        if ($result) {
+            return 1;
+        } else {
+            return 0; // khong insert duoc
+        }
+    }
 }
